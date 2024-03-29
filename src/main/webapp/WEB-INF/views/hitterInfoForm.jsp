@@ -93,33 +93,46 @@
 				<p></p>
 				<hr />
 			</div>
-			<div class="playerInfo_header">
+			<div class="search">
 				<form method="get" action="searchName">
 					이름 <input type="text" name="searchName"> <input
 						type="submit" value="검색">
 				</form>
-
-				<table class="profileTable">
-					<tr>
-						<th>이름</th>
-						<th>소속팀</th>
-						<th>생년월일</th>
-						<th>포지션</th>
-						<th>등번호</th>
-					</tr>
-					<c:forEach var="profile" items="${list}">
-						<tr>
-							<td><a href="player?id=${profile.id}&position=${profile.position}">${profile.name}</a></td>
-							<td><a href="selectTeam?team=${profile.team}">${profile.team}</a></td>
-							<td>${profile.birth}</td>
-							<td>${profile.position}</td>
-							<td>${profile.bnum}</td>
-						</tr>
-					</c:forEach>
-				</table>
+			</div>
+			<div class="playerInfo_Container">
+				<div class="playerInfo_profile">
+					<table class="profileTable">
+						<c:forEach var="profile" items="${list}">
+							<tr>
+								<td><img src="playerImg/${profile.id}.png" width="100"
+									height="100" alt="{profile.name}"></td>
+							</tr>
+							<tr>
+								<th>이름</th>
+								<th><a
+									href="player?id=${profile.id}&position=${profile.position}">${profile.name}</a></th>
+							</tr>
+							<tr>
+								<th>소속팀</th>
+								<th><a href="selectTeam?team=${profile.team}">${profile.team}</a></th>
+							</tr>
+							<tr>
+								<th>생년월일</th>
+								<th>${profile.birth}</th>
+							</tr>
+							<tr>
+								<th>포지션</th>
+								<th>${profile.position}</th>
+							</tr>
+							<tr>
+								<th>등번호</th>
+								<th>${profile.bnum}</th>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
 			</div>
 			<div class=chart_box>
-				<br/><hr/>
 				<table class="StatusTable">
 					<tr>
 						<th>경기수</th>
@@ -139,7 +152,8 @@
 					</c:forEach>
 				</table>
 			</div>
-	</section>
+
+		</section>
 	</div>
 	<footer>
         <div class="inner">
