@@ -11,16 +11,26 @@ INSERT INTO PROFILE(id, name, team, birth, position, bnum) values(10048, '이정
 
 
 
-INSERT INTO PitcherStatus(id, game, win, lose, hold, save, innings, hits, bb, so) 
-					values(10028, 1, 0, 0, 0, 0, 6.0, 6, 3, 6);
-INSERT INTO PitcherStatus(id, game, win, lose, hold, save, innings, hits, bb, so) 
-					values(10021, 1, 0, 0, 0, 0, 5.0, 6, 2, 4);
-INSERT INTO PitcherStatus(id, game, win, lose, hold, save, innings, hits, bb, so) 
-					values(10022, 2, 0, 1, 0, 0, 0.2, 6, 1, 0);				
-INSERT INTO PitcherStatus(id, game, win, lose, hold, save, innings, hits, bb, so) 
-					values(10034, 1, 0, 1, 0, 0, 0.0, 1, 0, 0);
-INSERT INTO PitcherStatus(id, game, win, lose, hold, save, innings, hits, bb, so) 
-					values(20054, 1, 0, 0, 0, 0, 5.1, 6, 4, 4);
+INSERT INTO PitcherStatus(id, game, gs, gr, gf, win, lose, save, hold, innings, 
+						  er, runs, rra, tbf, hits, doubleHits, TripleHits, homerun, bb, hp, 
+						  ib, so, rob, bk, wp, era) 
+				 values(10028, 30, 30, 0, 0, 11, 10, 0,	0, 170.1, 62, 68, 65.40, 734, 171, 34, 1, 6, 56, 15, 1,	147, 7,	0,	7,	3.28);
+INSERT INTO PitcherStatus(id, game, gs, gr, gf, win, lose, save, hold, innings, 
+						  er, runs, rra, tbf, hits, doubleHits, TripleHits, homerun, bb, hp, 
+						  ib, so, rob, bk, wp, era) 
+				 values(10021, 27, 27,	0,	0,	9,	7,	0,	0,	154.0,	59,	70,	67.25,	657,	145,	24,	0,	8,	59,	4,	1,	129,	9,	0,	10,	3.45);				 
+INSERT INTO PitcherStatus(id, game, gs, gr, gf, win, lose, save, hold, innings, 
+						  er, runs, rra, tbf, hits, doubleHits, TripleHits, homerun, bb, hp, 
+						  ib, so, rob, bk, wp, era) 
+				 values(10022, 67,	0,	67,	8,	2,	6,	3,	22,	63.2,	28,	32,	32.85,	289,	65,	8,	0,	4,	29,	5,	0,	66,	2,	0,	2,	3.96);
+INSERT INTO PitcherStatus(id, game, gs, gr, gf, win, lose, save, hold, innings, 
+						  er, runs, rra, tbf, hits, doubleHits, TripleHits, homerun, bb, hp, 
+						  ib, so, rob, bk, wp, era) 
+				 values(10034, 63,	0,	63,	47,	5,	6,	30,	0,	63.2,	21,	24,	29.50,	265,	51,	5,	3,	2, 25,	5,	3,	82,	1,	0,	3,	2.97);				 
+INSERT INTO PitcherStatus(id, game, gs, gr, gf, win, lose, save, hold, innings, 
+						  er, runs, rra, tbf, hits, doubleHits, TripleHits, homerun, bb, hp, 
+						  ib, so, rob, bk, wp, era) 
+				 values(20054, 29,	29,	0,	0,	9,	11,	0,	0,	171.0,	68,	78,	76.45,	729,	181, 33,	1,	13,	48,	1,	1,	133, 9,	0,	5,	3.58);
 
 
 INSERT INTO HitterStatus(id, game, pa, ab, hits, bb)

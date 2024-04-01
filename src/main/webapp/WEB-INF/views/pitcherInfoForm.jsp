@@ -30,8 +30,8 @@
                 <a href="profileAll">선수정보 조회</a>
                 <ul>
                 	<li><a href="team">구단 정보 조회</a></li>
-                	<li><a href="#">투수 정보 조회</a></li>
-                    <li><a href="#">타자 정보 조회</a></li>
+					<li><a href="pitcherInfo">투수 정보 조회</a></li>
+					<li><a href="hitterInfo">타자 정보 조회</a></li>
                 </ul>
             </li>
             
@@ -93,61 +93,106 @@
 				<p></p>
 				<hr />
 			</div>
-			<div class="playerInfo_header">
+			<div class="search">
 				<form method="get" action="searchName">
 					이름 <input type="text" name="searchName"> <input
 						type="submit" value="검색">
 				</form>
-
-				<table class="profileTable">
-					<tr>
-						<th>이름</th>
-						<th>소속팀</th>
-						<th>생년월일</th>
-						<th>포지션</th>
-						<th>등번호</th>
-					</tr>
-					<c:forEach var="profile" items="${list}">
-						<tr>
-							<td><a href="player?id=${profile.id}&position=${profile.position}">${profile.name}</a></td>
-							<td><a href="selectTeam?team=${profile.team}">${profile.team}</a></td>
-							<td>${profile.birth}</td>
-							<td>${profile.position}</td>
-							<td>${profile.bnum}</td>
-						</tr>
-					</c:forEach>
-				</table>
+			</div>
+			<div class="playerInfo_Container">
+				<div class="playerInfo_profile">
+					<table class="profileTable">
+						<c:forEach var="profile" items="${list}">
+							<tr>
+								<td><img src="playerImg/${profile.id}.png" width="100"
+									height="100" alt="{profile.name}"></td>
+							</tr>
+							<tr>
+								<th>이름</th>
+								<th><a
+									href="player?id=${profile.id}&position=${profile.position}">${profile.name}</a></th>
+							</tr>
+							<tr>
+								<th>소속팀</th>
+								<th><a href="selectTeam?team=${profile.team}">${profile.team}</a></th>
+							</tr>
+							<tr>
+								<th>생년월일</th>
+								<th>${profile.birth}</th>
+							</tr>
+							<tr>
+								<th>포지션</th>
+								<th>${profile.position}</th>
+							</tr>
+							<tr>
+								<th>등번호</th>
+								<th>${profile.bnum}</th>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
 			</div>
 			<div class=chart_box>
-				<br/><hr/>
-				<table class="pitcherTable">
+				<table class="StatusTable">
 					<tr>
 						<th>경기수</th>
+						<th>선발</th>
+						<th>중계</th>
+						<th>마무리</th>
 						<th>승</th>
 						<th>패</th>
 						<th>홀드</th>
 						<th>세이브</th>
 						<th>이닝</th>
-						<th>피안타</th>
+						<th>자책점</th>
+						<th>실점</th>
+						<th>책임실점</th>
+						<th>상대한 타자 수</th>
+						<th>안타</th>
+						<th>2루타</th>
+						<th>3루타</th>
+						<th>홈런</th>
 						<th>볼넷</th>
-						<th>삼진</th>		
+						<th>사구</th>
+						<th>고의사구</th>
+						<th>삼진</th>
+						<th>실책</th>
+						<th>보크</th>
+						<th>폭투</th>
+						<th>ERA</th>
 					</tr>
 					<c:forEach var="pitcher" items="${pitcher}">
 						<tr>
 							<td>${pitcher.game}</td>
+							<td>${pitcher.gs}</td>
+							<td>${pitcher.gr}</td>
+							<td>${pitcher.gf}</td>
 							<td>${pitcher.win}</td>
 							<td>${pitcher.lose}</td>
 							<td>${pitcher.hold}</td>
 							<td>${pitcher.save}</td>
 							<td>${pitcher.innings}</td>
+							<td>${pitcher.er}</td>
+							<td>${pitcher.runs}</td>
+							<td>${pitcher.rra}</td>
+							<td>${pitcher.tbf}</td>
 							<td>${pitcher.hits}</td>
+							<td>${pitcher.doubleHits}</td>
+							<td>${pitcher.tripleHits}</td>
+							<td>${pitcher.homerun}</td>
 							<td>${pitcher.bb}</td>
+							<td>${pitcher.hp}</td>
+							<td>${pitcher.ib}</td>
 							<td>${pitcher.so}</td>
+							<td>${pitcher.rob}</td>
+							<td>${pitcher.bk}</td>
+							<td>${pitcher.wp}</td>
+							<td>${pitcher.era}</td>
 						</tr>
 					</c:forEach>
 				</table>
 			</div>
-	</section>
+		</section>
 	</div>
 	<footer>
         <div class="inner">

@@ -33,6 +33,14 @@ public class ProfileService {
 		return profileMapper.selectAllProfile();
 	}
 	
+	public List<Profile> getPitcherProfiles(){
+		return profileMapper.selectPitcherProfile();
+	}
+	
+	public List<Profile> getHitterProfiles(){
+		return profileMapper.selectHitterProfile();
+	}
+	
 //	@Transactional
 //	public void addProfile(Profile profile) {
 //		profileMapper.insertProfile(profile);

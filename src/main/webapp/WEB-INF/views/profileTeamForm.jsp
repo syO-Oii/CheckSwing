@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -28,8 +26,8 @@
                 <a href="profileAll">선수정보 조회</a>
                 <ul>
                 	<li><a href="team">구단 정보 조회</a></li>
-                	<li><a href="#">투수 정보 조회</a></li>
-                    <li><a href="#">타자 정보 조회</a></li>
+					<li><a href="pitcherInfo">투수 정보 조회</a></li>
+					<li><a href="hitterInfo">타자 정보 조회</a></li>
                 </ul>
             </li>
             
@@ -87,7 +85,7 @@
 	<div class="container">
 		<section class="section_wrap">
 			<div class="top_pagename">
-				<h1>팀 정보 조회</h1>
+				<h1>선수 정보 조회</h1>
 				<p></p>
 				<hr />
 			</div>

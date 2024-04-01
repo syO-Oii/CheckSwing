@@ -47,6 +47,18 @@ public class MyController {
 		return "profileTeamForm";
 	}
 	
+	@GetMapping("/pitcherInfo")
+	public String profilePitcher(Model model) {
+		model.addAttribute("list", profileService.getPitcherProfiles());
+		return "profileTeamForm";
+	}
+	
+	@GetMapping("/hitterInfo")
+	public String profileHitter(Model model) {
+		model.addAttribute("list", profileService.getHitterProfiles());
+		return "profileTeamForm";
+	}
+	
 	@GetMapping("/selectTeam")
 	public String selectTeam(@RequestParam(value = "team", required = false) String team, Model model) {
 		List<Profile> profileList;

@@ -27,5 +27,11 @@ public interface ProfileMapper {
 	
 	@Select("select * from Profile where name like concat('%', #{name}, '%') order by team, bnum")
     List<Profile> selectProfileByName(String Name);
+	
+	@Select("select * from Profile where position = 'P'")
+	List<Profile> selectPitcherProfile();
+	
+	@Select("select * from Profile where position != 'P'")
+	List<Profile> selectHitterProfile();
 
 }
