@@ -137,17 +137,55 @@
 					<tr>
 						<th>경기수</th>
 						<th>타석</th>
+						<th>실질타석</th>
 						<th>타수</th>
+						<th>득점</th>
 						<th>안타</th>
+						<th>2루타</th>
+						<th>3루타</th>
+						<th>홈런</th>
+						<th>루타</th>
+						<th>타점</th>
+						<th>도루성공</th>
+						<th>도루실패</th>
 						<th>볼넷</th>
+						<th>사구</th>
+						<th>고의볼넷</th>
+						<th>삼진</th>
+						<th>병살타</th>
+						<th>희생타</th>
+						<th>희생플라이</th>
+						<th>AVG</th>
+						<th>OBP</th>
+						<th>SLG</th>
+						<th>OPS</th>
 					</tr>
 					<c:forEach var="hitter" items="${hitter}">
 						<tr>
 							<td>${hitter.game}</td>
 							<td>${hitter.pa}</td>
+							<td>${hitter.epa}</td>
 							<td>${hitter.ab}</td>
+							<td>${hitter.runs}</td>
 							<td>${hitter.hits}</td>
+							<td>${hitter.doubleHits}</td>
+							<td>${hitter.tripleHits}</td>
+							<td>${hitter.homerun}</td>
+							<td>${hitter.tb}</td>
+							<td>${hitter.rbi}</td>
+							<td>${hitter.sb}</td>
+							<td>${hitter.cs}</td>
 							<td>${hitter.bb}</td>
+							<td>${hitter.hp}</td>
+							<td>${hitter.ib}</td>
+							<td>${hitter.so}</td>
+							<td>${hitter.gdp}</td>
+							<td>${hitter.sh}</td>
+							<td>${hitter.sf}</td>
+							<td>${hitter.avg}</td>
+							<td>${hitter.obp}</td>
+							<td>${hitter.slg}</td>
+							<td>${hitter.ops}</td>
 						</tr>
 					</c:forEach>
 				</table>

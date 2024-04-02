@@ -1,4 +1,5 @@
 INSERT INTO PROFILE(id, name, team, birth, position, bnum) values(10028, '반즈', '롯데', '1995년 10월 01일', 'P', '28');
+INSERT INTO PROFILE(id, name, team, birth, position, bnum) values(10008, '전준우', '롯데', '1986년 02월 25일', 'DH', '08');
 INSERT INTO PROFILE(id, name, team, birth, position, bnum) values(10042, '정보근', '롯데', '1999년 08월 31일', 'C', '42');
 INSERT INTO PROFILE(id, name, team, birth, position, bnum) values(10009, '정훈', '롯데', '1987년 07월 18일', '1B', '09');
 INSERT INTO PROFILE(id, name, team, birth, position, bnum) values(10091, '윤동희', '롯데', '2003년 09월 18일', 'RF', '91');
@@ -33,13 +34,16 @@ INSERT INTO PitcherStatus(id, game, gs, gr, gf, win, lose, save, hold, innings,
 				 values(20054, 29,	29,	0,	0,	9,	11,	0,	0,	171.0,	68,	78,	76.45,	729,	181, 33,	1,	13,	48,	1,	1,	133, 9,	0,	5,	3.58);
 
 
-INSERT INTO HitterStatus(id, game, pa, ab, hits, bb)
-					values(10042, 2, 2, 2, 2, 0);
-INSERT INTO HitterStatus(id, game, pa, ab, hits, bb)
-					values(10009, 2, 5, 3, 0, 2);
-INSERT INTO HitterStatus(id, game, pa, ab, hits, bb)
-					values(10091, 11, 11, 7, 2, 4);
-INSERT INTO HitterStatus(id, game, pa, ab, hits, bb)
-					values(20034, 3, 13, 10, 8, 3);
-INSERT INTO HitterStatus(id, game, pa, ab, hits, bb)
-					values(10048, 59, 171, 152, 53, 13);
+INSERT INTO HitterStatus(id, game, pa, epa, ab, runs, hits, doubleHits, tripleHits, homerun, tb, rbi, sb, cs, bb, hp, ib, so, gdp, sh, sf, avg, obp, slg, ops)
+					values(10008, 	138,	559,	556,	493,	80,	154,	21,	3,	17,	232,	77,	9,	2,	52,	7,	4,	65,	12,	0,	7,	0.312,	0.381,	0.471,	0.852);
+INSERT INTO HitterStatus(id, game, pa, epa, ab, runs, hits, doubleHits, tripleHits, homerun, tb, rbi, sb, cs, bb, hp, ib, so, gdp, sh, sf, avg, obp, slg, ops)
+					values(10042, 	55,	101,	97,		81,		11,	27,	6,	1,	1,	38,	13,	1,	0,	14,	1,	0,	13,	1,	4,	1,	0.333,	0.433,	0.469,	0.902);	
+INSERT INTO HitterStatus(id, game, pa, epa, ab, runs, hits, doubleHits, tripleHits, homerun, tb, rbi, sb, cs, bb, hp, ib, so, gdp, sh, sf, avg, obp, slg, ops)
+					values(10009, 80,	233,	228,	201,	40,	56,	14,	0,	6,	88,	31,	2,	0,	26,	0,	1,	39,	4,	4,	2,	0.279,	0.358,	0.438,	0.796);
+INSERT INTO HitterStatus(id, game, pa, epa, ab, runs, hits, doubleHits, tripleHits, homerun, tb, rbi, sb, cs, bb, hp, ib, so, gdp, sh, sf, avg, obp, slg, ops)
+					values(10091, 107,	423,	421,	387,	45,	111,	18,	1,	2,	137,	41,	3,	6,	28,	1,	0,	69,	10,	2,	5,	0.287,	0.333,	0.354,	0.687);
+INSERT INTO HitterStatus(id, game, pa, epa, ab, runs, hits, doubleHits, tripleHits, homerun, tb, rbi, sb, cs, bb, hp, ib, so, gdp, sh, sf, avg, obp, slg, ops)
+					values(20034, 121,	508,	508,	431,	64,	130,	27,	1,	17,	210,	81,	0,	0,	65,	8,	1,	83,	5,	0,	4,	0.302,	0.400,	0.487,	0.887);
+INSERT INTO HitterStatus(id, game, pa, epa, ab, runs, hits, doubleHits, tripleHits, homerun, tb, rbi, sb, cs, bb, hp, ib, so, gdp, sh, sf, avg, obp, slg, ops)
+					values(10048, 59,	171,	171,	152,	17,	45,	7,	0,	1,	55,	17,	1,	1,	13,	3,	0,	28,	1,	0,	3,	0.296,	0.357,	0.362,	0.719);
+					
