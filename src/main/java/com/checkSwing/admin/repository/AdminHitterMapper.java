@@ -10,7 +10,7 @@ import com.checkSwing.user.model.PitcherStatus;
 import com.checkSwing.user.model.Profile;
 
 @Mapper
-public interface HitterMapper {
+public interface AdminHitterMapper {
 	@Select("select count(*) from HitterStatus")
 	int count();
 	

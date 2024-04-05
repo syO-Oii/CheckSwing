@@ -10,7 +10,7 @@ import com.checkSwing.user.model.Profile;
 import com.checkSwing.user.repository.ProfileMapper;
 
 @Service
-public class ProfileService {
+public class AdminProfileService {
 	@Autowired
 	private ProfileMapper profileMapper;
 	

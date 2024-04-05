@@ -7,7 +7,7 @@ CREATE TABLE Profile
     team	  VARCHAR(255)    NOT NULL,
     birth	  VARCHAR(255)    NOT NULL,
     position  VARCHAR(255)    NOT NULL,
-    bnum	  VARCHAR(255)	  NOT NULL
+    tota	  VARCHAR(255)	  NOT NULL
 );
 
 

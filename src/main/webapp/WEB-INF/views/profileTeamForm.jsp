@@ -112,7 +112,7 @@
 							<th>소속팀</th>
 							<th>생년월일</th>
 							<th>포지션</th>
-							<th>등번호</th>
+							<th>투구타격</th>
 						</tr>
 						<c:forEach var="profile" items="${list}">
 							<tr>
@@ -120,12 +120,11 @@
 								<td><a href="selectTeam?team=${profile.team}">${profile.team}</a></td>
 								<td>${profile.birth}</td>
 								<td>${profile.position}</td>
-								<td>${profile.bnum}</td>
+								<td>${profile.tota}</td>
 							</tr>
 						</c:forEach>
 					</table>
 				</div>
-				<div class=chart_box></div>
 
 			</div>
 		</section>

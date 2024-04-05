@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import com.checkSwing.user.model.Profile;
 
 @Mapper
-public interface ProfileMapper {
+public interface AdminProfileMapper {
 	@Select("select count(*) from Profile")
 	int count();
 	

@@ -20,5 +20,5 @@ public class Profile {
 	private String team;
 	@NonNull private String birth;
 	@NonNull private String position;
-	private int bnum;
+	private String tota;
 }

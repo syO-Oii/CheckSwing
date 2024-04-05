@@ -17,7 +17,7 @@
 
 	<header class="adminHeader">
 		<div class="adminInner">
-			<h1>관리자 페이지</h1>
+			<h1>팀 정보 수정</h1>
 			<ul class=adminUtil>
 				<li><a href="main.checkSwing">메인으로 돌아가기</a></li>
 

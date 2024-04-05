@@ -14,11 +14,11 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Profile {
+public class AdminProfile {
 	@NonNull private long id;
 	@NonNull private String name;
 	private String team;
 	@NonNull private String birth;
 	@NonNull private String position;
-	private int bnum;
+	private String tota;
 }

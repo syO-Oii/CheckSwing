@@ -125,8 +125,8 @@
 								<th>${profile.position}</th>
 							</tr>
 							<tr>
-								<th>등번호</th>
-								<th>${profile.bnum}</th>
+								<th>투구타격</th>
+								<th>${profile.tota}</th>
 							</tr>
 						</c:forEach>
 					</table>

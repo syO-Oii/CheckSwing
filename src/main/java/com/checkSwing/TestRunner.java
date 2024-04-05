@@ -30,7 +30,7 @@ public class TestRunner implements ApplicationRunner {
         
      // JdbcTemplate
         jdbcTemplate.execute("INSERT INTO Profile "
-        		+ "(id, name, team, birth, position, bnum) "
-        		+ "values (10000, '윈지', '롯데', '2024년 01월 01일', '마스코트', '2024')");
+        		+ "(id, name, team, birth, position, tota) "
+        		+ "values (10000, '윈지', '롯데', '2024년 01월 01일', '마스코트', '양투양타')");
     }
 }

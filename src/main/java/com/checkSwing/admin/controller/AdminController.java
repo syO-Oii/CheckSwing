@@ -20,4 +20,23 @@ import com.checkSwing.user.service.ProfileService;
 @Controller
 public class AdminController {
 
+	@GetMapping("/admin")
+	public String index(Model model) {
+		return "admin/adminIndex";
+	}
+	
+	@GetMapping("/admin/profile")
+	public String profileUpdate(Model model) {
+		return "admin/profileUpdateForm";
+	}
+	
+	@GetMapping("/admin/team")
+	public String teamUpdate(Model model) {
+		return "admin/teamUpdateForm";
+	}
+	
+	@GetMapping("/admin/board")
+	public String boardUpdate(Model model) {
+		return "admin/boardUpdateForm";
+	}
 }

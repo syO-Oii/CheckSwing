@@ -15,7 +15,7 @@ public interface ProfileMapper {
 	@Select("select * from Profile where id = #{id}")
 	List<Profile> selectProfileById(int id);
 	
-	@Select("select * from Profile")
+	@Select("select * from Profile order by name")
     List<Profile> selectAllProfile();
 	
 	@Select("insert into Profile (id, name, team, birth, position, bnum) "
@@ -28,10 +28,10 @@ public interface ProfileMapper {
 	@Select("select * from Profile where name like concat('%', #{name}, '%') order by team, bnum")
     List<Profile> selectProfileByName(String Name);
 	
-	@Select("select * from Profile where position = 'P'")
+	@Select("select * from Profile where position = 'P' order by name")
 	List<Profile> selectPitcherProfile();
 	
-	@Select("select * from Profile where position != 'P'")
+	@Select("select * from Profile where position != 'P' order by name")
 	List<Profile> selectHitterProfile();
 
 }

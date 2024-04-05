@@ -14,7 +14,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class HitterStatus {
+public class AdminHitterStatus {
 	@NonNull private long id;
 	private int game;
 	private int pa;		// Plate Apperance, 타석
