@@ -1,13 +1,13 @@
-package com.checkSwing.repository;
+package com.checkSwing.user.repository;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
-import com.checkSwing.model.HitterStatus;
-import com.checkSwing.model.PitcherStatus;
-import com.checkSwing.model.Profile;
+import com.checkSwing.user.model.HitterStatus;
+import com.checkSwing.user.model.PitcherStatus;
+import com.checkSwing.user.model.Profile;
 
 @Mapper
 public interface HitterMapper {

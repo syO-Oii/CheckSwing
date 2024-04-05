@@ -1,4 +1,4 @@
-package com.checkSwing.service;
+package com.checkSwing.user.service;
 
 import java.util.List;
 
@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.checkSwing.model.HitterStatus;
-import com.checkSwing.model.PitcherStatus;
-import com.checkSwing.model.Profile;
-import com.checkSwing.repository.HitterMapper;
-import com.checkSwing.repository.PitcherMapper;
-import com.checkSwing.repository.ProfileMapper;
+import com.checkSwing.user.model.HitterStatus;
+import com.checkSwing.user.model.PitcherStatus;
+import com.checkSwing.user.model.Profile;
+import com.checkSwing.user.repository.HitterMapper;
+import com.checkSwing.user.repository.PitcherMapper;
+import com.checkSwing.user.repository.ProfileMapper;
 
 @Service
 public class HitterService {

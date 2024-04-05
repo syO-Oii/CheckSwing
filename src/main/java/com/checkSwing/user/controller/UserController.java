@@ -1,4 +1,4 @@
-package com.checkSwing.controller;
+package com.checkSwing.user.controller;
 
 import java.util.List;
 
@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.checkSwing.model.HitterStatus;
-import com.checkSwing.model.PitcherStatus;
-import com.checkSwing.model.Profile;
-import com.checkSwing.service.HitterService;
-import com.checkSwing.service.PitcherService;
-import com.checkSwing.service.ProfileService;
+import com.checkSwing.user.model.HitterStatus;
+import com.checkSwing.user.model.PitcherStatus;
+import com.checkSwing.user.model.Profile;
+import com.checkSwing.user.service.HitterService;
+import com.checkSwing.user.service.PitcherService;
+import com.checkSwing.user.service.ProfileService;
 
 @Controller
-public class MyController {
+public class UserController {
 
 	@Autowired
 	private ProfileService profileService;

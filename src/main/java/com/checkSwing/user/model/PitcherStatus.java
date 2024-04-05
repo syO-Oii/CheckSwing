@@ -1,4 +1,4 @@
-package com.checkSwing.model;
+package com.checkSwing.user.model;
 
 import org.springframework.context.annotation.Primary;
 
