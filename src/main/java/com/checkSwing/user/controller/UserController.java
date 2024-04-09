@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.checkSwing.user.model.HitterRank;
 import com.checkSwing.user.model.HitterStatus;
 import com.checkSwing.user.model.PitcherStatus;
 import com.checkSwing.user.model.Profile;
 import com.checkSwing.user.service.HitterService;
 import com.checkSwing.user.service.PitcherService;
 import com.checkSwing.user.service.ProfileService;
+import com.checkSwing.user.service.RankService;
 
 @Controller
 public class UserController {
@@ -28,6 +30,9 @@ public class UserController {
 
 	@Autowired
 	private HitterService hitterService;
+	
+	@Autowired
+	private RankService rankService;
 
 	@GetMapping("/")
 	public String index(Model model) {
@@ -93,8 +98,27 @@ public class UserController {
 			return "pitcherInfoForm";
 		} else {
 			List<HitterStatus> hitterStatusList = hitterService.getStatusById(id);
+			List<HitterRank> hitterRankAll = rankService.getRank();
+			
+			List<HitterRank> hitterRank = rankService.getRankById(id);
+			
+			int rankCount = rankService.getRankCount();
+
+
+			for (HitterRank rank : hitterRank) {
+				rank.setAvgPercentile(100 - ((double)rank.getAvgRank() / rankCount * 100));
+				rank.setObpPercentile(100 - ((double)rank.getObpRank() / rankCount * 100));
+				rank.setSlgPercentile(100 - ((double)rank.getSlgRank() / rankCount * 100));
+				rank.setOpsPercentile(100 - ((double)rank.getOpsRank() / rankCount * 100));
+				rank.setRbiPercentile(100 - ((double)rank.getRbiRank() / rankCount * 100));
+				rank.setHrPercentile(100 - ((double)rank.getHrRank() / rankCount * 100));
+				System.out.println(100 - (rank.getObpRank() / (double)rankCount * 100));
+			}
+			
 			model.addAttribute("list", profileList);
 			model.addAttribute("hitter", hitterStatusList);
+			model.addAttribute("rank", hitterRank);
+			
 			return "hitterInfoForm";
 		}
 		

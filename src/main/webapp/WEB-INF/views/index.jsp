@@ -84,7 +84,7 @@
 	</div>
 
 
-	<section>
+	<section class = "main_section">
 		<div class="inner">
 			<h1>RECENT NEWS</h1>
 			<div class="wrap">

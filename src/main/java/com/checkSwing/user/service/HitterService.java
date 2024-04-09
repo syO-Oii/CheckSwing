@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.checkSwing.user.model.HitterRank;
 import com.checkSwing.user.model.HitterStatus;
 import com.checkSwing.user.model.PitcherStatus;
 import com.checkSwing.user.model.Profile;
@@ -21,5 +22,5 @@ public class HitterService {
 	@Transactional
 	public List<HitterStatus> getStatusById(int id) {
 		return hitterMapper.selectStatusById(id);
-	}
+	}	
 }

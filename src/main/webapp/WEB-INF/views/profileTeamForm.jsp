@@ -94,8 +94,16 @@
 					팀선택
 					<select id="team" name="team" size="1">
 						<option value="all">전체</option>
-						<option value="롯데">롯데</option>
+						<option value="LG">LG</option>
+						<option value="KT">KT</option>
+						<option value="SSG">SSG</option>
+						<option value="NC">NC</option>
+						<option value="두산">두산</option>
 						<option value="기아">기아</option>
+						<option value="롯데">롯데</option>
+						<option value="삼성">삼성</option>
+						<option value="한화">한화</option>
+						<option value="키움">키움</option>
 						<input type="submit" value="선택">
 					</select>
 				</form>

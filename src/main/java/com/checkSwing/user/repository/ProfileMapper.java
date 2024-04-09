@@ -18,14 +18,14 @@ public interface ProfileMapper {
 	@Select("select * from Profile order by name")
     List<Profile> selectAllProfile();
 	
-	@Select("insert into Profile (id, name, team, birth, position, bnum) "
-					   + "values ( #{id}, #{name}, #{team}, #{birth}, #{position}, #{bnum})")
+	@Select("insert into Profile (id, name, team, birth, position, tota) "
+					   + "values ( #{id}, #{name}, #{team}, #{birth}, #{position}, #{tota})")
     void insertProfile(Profile profile);
 	
-	@Select("select * from Profile where team = #{team} order by bnum")
+	@Select("select * from Profile where team = #{team} order by id")
     List<Profile> selectProfileByTeam(String team);
 	
-	@Select("select * from Profile where name like concat('%', #{name}, '%') order by team, bnum")
+	@Select("select * from Profile where name like concat('%', #{name}, '%') order by team, id")
     List<Profile> selectProfileByName(String Name);
 	
 	@Select("select * from Profile where position = 'P' order by name")

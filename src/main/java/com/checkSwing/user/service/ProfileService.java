@@ -41,19 +41,6 @@ public class ProfileService {
 		return profileMapper.selectHitterProfile();
 	}
 	
-//	@Transactional
-//	public void addProfile(Profile profile) {
-//		profileMapper.insertProfile(profile);
-//	}
 	
 	
-//	@Transactional
-//	public void updateProfile(Profile profile) {
-//		profileMapper.updateProfile(profile);
-//	}
-	
-//	@Transactional
-//	public void deleteProfile(Profile profile) {
-//		profileMapper.deleteProfile(profile);
-//	}
 }

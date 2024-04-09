@@ -138,6 +138,9 @@ header .inner #gnb li ul li a {
     display: block;
 }
 
+
+
+
 .mySlideDiv img {
     width: 100%; /* 이미지의 너비를 부모 요소에 맞게 조절합니다. */
     height: auto; /* 이미지의 높이를 자동으로 조절하여 가로 세로 비율을 유지합니다. */
@@ -269,8 +272,6 @@ header .inner #gnb li ul li a {
 .playerList tr:nth-child(even) {
   background-color: #f2f2f2; /* 배경색 */
 }
-
-
 
 
 /* 관리자 페이지 */
@@ -473,17 +474,17 @@ figure .inner a:hover {
 	color: #555;
 }
 /* news */
-section {
+.main_section {
 	width: 100%;
-	padding: 200px 0px;
+	padding: 200px 20px;
 }
 
-section .inner {
+.main_section .inner {
 	width: 1180px;
 	margin: 0px auto;
 }
 
-section .inner h1 {
+.main_section .inner h1 {
 	font-family: Giants-Bold, sans-serif;
 	font-size: 24px/1;
 	color: #555;
@@ -491,45 +492,45 @@ section .inner h1 {
 	margin-bottom: 50px;
 }
 
-section .inner .wrap {
+.main_section .inner .wrap {
 	width: 100%;
 }
 
-section .inner .wrap::after {
+.main_section .inner .wrap::after {
 	/*자식 요소인 article의 float해제*/
 	content: "";
 	display: block;
 	clear: both;
 }
 
-section .inner .wrap article {
+.main_section .inner .wrap article {
 	width: 280px;
 	float: left;
 	margin-right: 20px;
 }
 
-section .inner .wrap article:last-child {
+.main_section .inner .wrap article:last-child {
 	/*제일 오른쪽 마지막 요소만 여백제거*/
 	margin-right: 0px;
 }
 
-section .inner .wrap article h2 {
+.main_section .inner .wrap article h2 {
 	margin-bottom: 10px;
 }
 
-section .inner .wrap article h2 a {
+.main_section .inner .wrap article h2 a {
 	font-family: 'Giants-Bold', sans-serif;
 	font-size: 12px/1;
 	color: #555;
 }
 
-section .inner .wrap article p {
+.main_section .inner .wrap article p {
 	font-family: 'Giants-Regular', sans-serif;
 	font-size: 12px/1.4;
 	color: #777;
 }
 
-section .inner .wrap article .pic {
+.main_section .inner .wrap article .pic {
 	width: 100%;
 	height: 120px;
 	background: #333;
@@ -538,7 +539,7 @@ section .inner .wrap article .pic {
 	overflow: hidden;
 }
 
-section .inner .wrap article .pic img {
+.main_section .inner .wrap article .pic img {
 	object-fit: cover; /*pic프레임안에 이미지 꽉 채움*/
 	width: 100%;
 	height: 100%;
@@ -547,15 +548,23 @@ section .inner .wrap article .pic img {
 /* 선수 정보 조회 */
 .container {
     display: flex; /* 컨테이너를 플렉스 박스로 설정합니다. */
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
 }
 
 .section_wrap {
-    flex: 1; /* 섹션을 확장하여 나머지 공간을 차지하도록 설정합니다. */
+	margin : 20px;
+	width:100%;
+    height:100%;
 }
 
 .playerInfo_Container {
-    width: 330px; /* 가로 크기를 330px로 설정합니다. */
+	display: flex;
+    width: 100%; /* 가로 크기를 330px로 설정합니다. */
     float: left; /* 왼쪽으로 부유시킵니다. */
+    flex-direction: row; /* 요소들을 수평으로 배치합니다. */
 }
 
 .playerInfo_profile {
@@ -563,6 +572,7 @@ section .inner .wrap article .pic img {
     padding: 20px; /* 테두리와 사진 사이의 간격 설정 */
     margin-top: 20px; /* chart_box와 이전 요소 사이의 간격 설정 */
     margin-left: 20px;
+    width:300px;
     position: relative;
 }
 
@@ -574,15 +584,50 @@ section .inner .wrap article .pic img {
     
 }
 
+.ranking_container {
+	border: 1px solid #ccc; /* 테두리 스타일과 색상 설정 */
+    padding: 20px; /* 테두리와 사진 사이의 간격 설정 */
+    margin-top: 20px;
+    margin-left: 20px;
+}
 
+
+.ranking_box {
+    padding: 10px; /* 테두리와 사진 사이의 간격 설정 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개의 동일한 너비의 열 */
+    gap: 20px; /* 그리드 아이템 사이의 간격 */   
+}
+
+.title {
+    display: grid;
+    place-items: center; /* 요소를 가운데 정렬 */
+}
+.rank_info{
+	border: 1px solid #ccc; /* 테두리 스타일과 색상 설정 */
+	padding:10px;
+	width:150px;
+	height:100px;
+}
+
+
+.gauge {
+    background-color: #3498db; /* 게이지의 배경색 */
+    height: 10px; /* 게이지의 높이를 20px로 설정 */
+    border: 1px solid #ccc; /* 게이지의 테두리 */
+}
+
+.gauge-inner {
+    background-color: #2ecc71; /* 게이지의 색상 */
+    height: 100%; /* 게이지의 높이를 100%로 설정하여 게이지의 너비를 조절합니다. */
+}
 
 .chart_box {
 	border: 1px solid #ccc; /* 테두리 스타일과 색상 설정 */
     padding: 20px; /* 테두리와 사진 사이의 간격 설정 */
-    margin-top: 300px;
+    margin-top: 340px;
     margin-left: 20px; /* playerInfo_Container와의 간격을 설정합니다. */
     margin-right: 20px;
-    /*flex: 1;  섹션을 확장하여 나머지 공간을 차지하도록 설정합니다. */
 }
 
 .chart_box table {
@@ -616,9 +661,6 @@ section .inner .wrap article .pic img {
 .chart_box tr:nth-child(odd) {
     background-color: #f9f9f9;
 }
-
-
-
 
 
 /* footer */
