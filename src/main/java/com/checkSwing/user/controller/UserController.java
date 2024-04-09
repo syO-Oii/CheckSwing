@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.checkSwing.user.model.HitterRank;
 import com.checkSwing.user.model.HitterStatus;
+import com.checkSwing.user.model.PitcherRank;
 import com.checkSwing.user.model.PitcherStatus;
 import com.checkSwing.user.model.Profile;
 import com.checkSwing.user.service.HitterService;
@@ -93,18 +94,25 @@ public class UserController {
 
 		if (position.equals("P")) {
 			List<PitcherStatus> pitcherStatusList = pitcherService.getStatusById(id);
+			List<PitcherRank> pitcherRank = rankService.getPitcherRankById(id);
+			int rankCount = rankService.getPitcherRankCount();
+			
+			for (PitcherRank rank : pitcherRank) {
+				rank.setBbPercentile(100 - ((double)rank.getBbRank() / rankCount * 100));
+				rank.setSoPercentile(100 - ((double)rank.getSoRank() / rankCount * 100));
+				rank.setEraPercentile(100 - ((double)rank.getEraRank() / rankCount * 100));
+			}
+			
 			model.addAttribute("list", profileList);
 			model.addAttribute("pitcher", pitcherStatusList);
+			model.addAttribute("rank", pitcherRank);
 			return "pitcherInfoForm";
 		} else {
 			List<HitterStatus> hitterStatusList = hitterService.getStatusById(id);
-			List<HitterRank> hitterRankAll = rankService.getRank();
+			List<HitterRank> hitterRank = rankService.getHitterRankById(id);
+			int rankCount = rankService.getHitterRankCount();
 			
-			List<HitterRank> hitterRank = rankService.getRankById(id);
-			
-			int rankCount = rankService.getRankCount();
-
-
+			// 각 스탯 별 백분위 추출작업
 			for (HitterRank rank : hitterRank) {
 				rank.setAvgPercentile(100 - ((double)rank.getAvgRank() / rankCount * 100));
 				rank.setObpPercentile(100 - ((double)rank.getObpRank() / rankCount * 100));
@@ -112,7 +120,6 @@ public class UserController {
 				rank.setOpsPercentile(100 - ((double)rank.getOpsRank() / rankCount * 100));
 				rank.setRbiPercentile(100 - ((double)rank.getRbiRank() / rankCount * 100));
 				rank.setHrPercentile(100 - ((double)rank.getHrRank() / rankCount * 100));
-				System.out.println(100 - (rank.getObpRank() / (double)rankCount * 100));
 			}
 			
 			model.addAttribute("list", profileList);

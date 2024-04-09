@@ -196,7 +196,7 @@
 								</c:forEach>
 							</div>
 						</div>
-						
+
 						<div class="graph_box">
 							<div class="rank_info">
 								<c:forEach var="rank" items="${rank}">
@@ -215,7 +215,7 @@
 								</c:forEach>
 							</div>
 						</div>
-						
+
 						<div class="graph_box">
 							<div class="rank_info">
 								<c:forEach var="rank" items="${rank}">
@@ -234,13 +234,14 @@
 								</c:forEach>
 							</div>
 						</div>
-						
+
 						<div class="graph_box">
 							<div class="rank_info">
 								<c:forEach var="rank" items="${rank}">
 							
 							홈런 :
-							<span>${rank.homerun}</span><br>
+							<span>${rank.homerun}</span>
+									<br>
 							홈런_Rank : 
 							<span>${rank.hrRank}위</span>
 									<br />
@@ -253,7 +254,7 @@
 								</c:forEach>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
@@ -316,14 +317,7 @@
 					</c:forEach>
 				</table>
 			</div>
-
-
 		</section>
-	</div>
-
-
-
-
 	</div>
 	<footer>
 		<div class="inner">
