@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.checkSwing.repository.ProfileMapper">
+	
+	<select id="selectAllProfile" resultType="com.checkSwing.model.Profile">
+		<![CDATA[
+			SELECT
+				ID,
+				NAME,
+				TEAM,
+				BIRTH,
+				POSITION,
+				BNUM
+			FROM
+				PROFILE
+			ORDER BY id DESC
+		]]>
+	</select>
+	
+</mapper>

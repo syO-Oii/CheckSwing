@@ -1,0 +1,733 @@
+@charset 'utf-8';
+
+@font-face {
+	font-family: 'Giants-Inline';
+	src: url('../fonts/Giants-Inline.ttf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Giants-Bold';
+	src: url('../fonts/Giants-Bold.ttf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Giants-Regular';
+	src: url('../fonts/Giants-Regular.ttf') format('opentype');
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* header */
+header {
+	width: 100%;
+	border-bottom: 1px solid #ddd;
+	background: #F0F0F0;
+}
+
+header .inner {
+	width: 1180px;
+	height: 120px;
+	margin: 0px auto;
+	position: relative; /*자식 absolute 요소의 기준점 설정*/
+}
+
+header .inner h1 {
+	position: absolute;
+	left: 0px;
+	bottom: 15px;
+}
+
+header .inner h1 a {
+	font-family: 'Giants-Bold', sans-serif;
+	font-size: 24px;
+	color: #444;
+}
+
+header .inner .util {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+}
+
+header .inner .util li {
+	float: left;
+}
+
+header .inner .util li a {
+	display: block;
+	font-family: 'Giants-Regular', sans-serif;
+	font-size: 12px;
+	color: #999;
+	padding: 0px 10px;
+}
+
+/* 2차 메뉴 바 */
+header .inner #gnb {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	z-index: 2;
+}
+
+header .inner #gnb li {
+	float: left;
+	position: relative;
+}
+
+header .inner #gnb li a {
+	display: block; /*인라인 요소는 block설정하여 크기를 조절가능*/
+	font-family: 'Giants-Bold', sans-serif;
+	font-size: 15px/1;
+	color: #555;
+	padding: 20px 40px;
+	transition: all 0.5s;
+}
+
+header .inner #gnb li:hover a {
+	background: #555;
+	color: #fff;
+}
+
+header .inner #gnb>li:hover>ul {
+	display: block;
+}
+
+header .inner #gnb ul {
+	display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 500px; /* 하위 메뉴 너비 설정 */
+}
+
+header .inner ul>li>ul {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+}
+
+header .inner #gnb li ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: none; /* 하위 메뉴 숨김 */
+}
+
+header .inner #gnb li ul li {
+    display: block;
+    width: 100%; /* 하위 메뉴의 전체 너비 */
+    text-align: center;
+}
+header .inner #gnb li ul li a {
+	font-family: 'Giants-Regular', sans-serif;
+    font-size: 13px;
+    display: block;
+}
+
+
+
+
+.mySlideDiv img {
+    width: 100%; /* 이미지의 너비를 부모 요소에 맞게 조절합니다. */
+    height: auto; /* 이미지의 높이를 자동으로 조절하여 가로 세로 비율을 유지합니다. */
+}
+
+/* Main Styles */
+.loginMain {
+	text-align: center;
+	padding: 50px 0;
+	background-color: #f2f2f2; /* 배경색을 원하는 색으로 지정 */
+}
+
+.loginDiv {
+	max-width: 400px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.loginDiv h1 {
+	text-align: center;
+	color: #333;
+	font-size: 24px;
+}
+
+.loginDiv form {
+	display: flex;
+	flex-direction: column;
+}
+
+.loginDiv input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+.loginDiv input[type="submit"] {
+	background-color: #4caf50;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.loginDiv input[type="submit"]:hover {
+	background-color: #45a049;
+}
+
+/* Join 페이지 */
+.joinMain {
+	background-color: #f4f4f4; /* 배경색 설정 */
+	padding: 50px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+	width: 70%;
+	margin: 0 auto; /* 가운데 정렬을 위해 추가 */
+}
+
+.joinMain h1 {
+	text-align: center;
+	color: #333;
+	font-size: 24px;
+}
+
+.joinDiv {
+	max-width: 500px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 폼 스타일 */
+.joinDiv form {
+	display: flex;
+	flex-direction: column;
+}
+
+.joinDiv label {
+	margin-bottom: 8px;
+}
+
+.joinDiv input {
+	padding: 8px;
+	margin-bottom: 16px;
+}
+
+.joinDiv button {
+	padding: 10px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.joinDiv button:hover {
+	background-color: #0056b3;
+}
+
+.profileTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd; /* 테이블 테두리 스타일 */
+}
+
+/* 테이블 헤더 스타일 */
+.playerList th {
+  background-color: #f2f2f2; /* 배경색 */
+  border: 1px solid #ddd; /* 테두리 스타일 */
+  padding: 8px; /* 셀 내부 여백 */
+  text-align: center; /* 가운데 정렬 */
+}
+
+/* 테이블 데이터 행 스타일 */
+.playerList td {
+  border: 1px solid #ddd; /* 테두리 스타일 */
+  padding: 8px; /* 셀 내부 여백 */
+  text-align: center; /* 가운데 정렬 */
+}
+
+/* 짝수 번째 행 배경색 지정 */
+.playerList tr:nth-child(even) {
+  background-color: #f2f2f2; /* 배경색 */
+}
+
+
+/* 관리자 페이지 */
+.adminHeader {
+	background-color: black;
+	color: white;
+}
+
+.adminInner {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.adminInner h1 {
+	margin: 0;
+}
+
+.adminUtil a {
+	color: yellow;
+}
+
+.adminMain {
+	background-color: #f2f2f2; /* Dark gray background color */
+	padding: 20px;
+}
+
+.adminMainDiv {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.adminTable {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+.adminTable th, .table td {
+	padding: 10px; border : 1px solid #fff;
+	text-align: center;
+	border: 1px solid #fff;
+}
+
+.adminTable th {
+	background-color: #4CAF50; /* 진한 녹색 배경 */
+	color: white; /* 흰색 글씨 */
+}
+
+.adminTable tr:nth-child(even) {
+	background-color: #f9f9f9; /* 짝수 행 배경 회색 */
+}
+
+.adminTable tr:hover {
+	background-color: #f1f1f1; /* 마우스 호버 시 연한 회색 배경 */
+}
+
+.adminTable td {
+	text-align: center;
+}
+
+/* Additional styles for the updateBtn */
+.updateBtn {
+	background-color: #4CAF50; /* Green background color */
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 4px;
+}
+
+/* 관리자 팝업창 내용  */
+
+/* updateAdminTable 클래스에 속하는 테이블 스타일 설정 */
+.updateAdminTable {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px; /* 원하는 여백 값으로 조절하세요 */
+}
+
+.updateAdminTable th,
+.updateAdminTable td {
+    border: 1px solid #ddd; /* 테이블 셀 경계선 스타일 설정 */
+    padding: 8px;
+    text-align: left;
+}
+
+.updateAdminTable th {
+	background-color: #4CAF50; /* 연두색 배경 설정 */
+	color: white; /* 헤더 글자색 설정 */
+	text-align: center;
+}
+
+.updateAdminTable td {
+	text-align: center;
+}
+
+/* 입력 필드 스타일 설정 */
+.updateAdminTable input[type="text"], 
+.updateAdminTable input[type="submit"],
+.updateAdminTable input[type="button"] {
+	padding: 8px;
+	margin: 5px 0;
+}
+
+.updateAdminTable input[type="submit"] {
+	background-color: #4caf50; /* 녹색 배경 설정 */
+	color: white; /* 글자색 설정 */
+	cursor: pointer;
+}
+
+.updateAdminTable input[type="submit"]:hover {
+	background-color: #45a049; /* 호버시 배경색 설정 */
+}
+
+.updateAdminTable input[type="button"] {
+	background-color: #32CD32; /* 연두색 배경 설정 */
+	color: white; /* 글자색 설정 */
+	cursor: pointer;
+}
+
+.updateAdminTable input[type="button"]:hover {
+	background-color: #228B22; /* 호버시 배경색 설정 */
+}
+
+.submitAdminBtn, .deleteAdminBtn {
+	background-color: #4CAF50; /* Green background color */
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 4px;
+}
+
+figure {
+	width: 100%;
+	height: calc(100vh - 120px); /*전체 브라우저 높이에서 120px만큼 빼줌*/
+	background: #000;
+	position: relative;
+	overflow: hidden;
+	padding-top: 250px;
+	z-index: 1;
+}
+
+figure iframe {
+	object-fit: cover; /*영상을 figure안쪽에 꽉 차도록 설정*/
+	width: 100%;
+	height: 100%;
+	opacity: 0.3;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+figure .inner {
+	width: 1180px;
+	margin: 0px auto;
+	position: relative;
+}
+
+figure .inner h1 {
+	font-family: 'Giants-Regular', sans-serif;
+	font-size: 100px/1;
+	color: #fff;
+	margin-bottom: 20px;
+}
+
+figure .inner p {
+	font-family: 'Giants-Regular', sans-serif;
+	font-size: 16px/1.4;
+	color: #888;
+	margin-bottom: 60px;
+}
+
+figure .inner a {
+	display: block;
+	width: 400px;
+	height: 30px;
+	border: 1px solid #bbb;
+	font-family: 'Giants-Bold', sans-serif;
+	font-size: 11px/30px;
+	color: #fff;
+	text-align: center;
+	letter-spacing: 1px;
+	transition: all 0.5s;
+}
+
+figure .inner a:hover {
+	background: #fff;
+	color: #555;
+}
+/* news */
+.main_section {
+	width: 100%;
+	padding: 200px 20px;
+}
+
+.main_section .inner {
+	width: 1180px;
+	margin: 0px auto;
+}
+
+.main_section .inner h1 {
+	font-family: Giants-Bold, sans-serif;
+	font-size: 24px/1;
+	color: #555;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.main_section .inner .wrap {
+	width: 100%;
+}
+
+.main_section .inner .wrap::after {
+	/*자식 요소인 article의 float해제*/
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.main_section .inner .wrap article {
+	width: 280px;
+	float: left;
+	margin-right: 20px;
+}
+
+.main_section .inner .wrap article:last-child {
+	/*제일 오른쪽 마지막 요소만 여백제거*/
+	margin-right: 0px;
+}
+
+.main_section .inner .wrap article h2 {
+	margin-bottom: 10px;
+}
+
+.main_section .inner .wrap article h2 a {
+	font-family: 'Giants-Bold', sans-serif;
+	font-size: 12px/1;
+	color: #555;
+}
+
+.main_section .inner .wrap article p {
+	font-family: 'Giants-Regular', sans-serif;
+	font-size: 12px/1.4;
+	color: #777;
+}
+
+.main_section .inner .wrap article .pic {
+	width: 100%;
+	height: 120px;
+	background: #333;
+	margin-bottom: 15px;
+	position: relative;
+	overflow: hidden;
+}
+
+.main_section .inner .wrap article .pic img {
+	object-fit: cover; /*pic프레임안에 이미지 꽉 채움*/
+	width: 100%;
+	height: 100%;
+}
+
+/* 선수 정보 조회 */
+.container {
+    display: flex; /* 컨테이너를 플렉스 박스로 설정합니다. */
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+.section_wrap {
+	margin : 20px;
+	width:100%;
+    height:100%;
+}
+
+.playerInfo_Container {
+	display: flex;
+    width: 100%; /* 가로 크기를 330px로 설정합니다. */
+    float: left; /* 왼쪽으로 부유시킵니다. */
+    flex-direction: row; /* 요소들을 수평으로 배치합니다. */
+}
+
+.playerInfo_profile {
+	border: 1px solid #ccc; /* 테두리 스타일과 색상 설정 */
+    padding: 20px; /* 테두리와 사진 사이의 간격 설정 */
+    margin-top: 20px; /* chart_box와 이전 요소 사이의 간격 설정 */
+    margin-left: 20px;
+    width:300px;
+    position: relative;
+}
+
+.playerInfo_profile img {
+    position: relative;
+    top: 100%;
+    left: 60%;
+    transform: translate(0%, 0%);
+    
+}
+
+.ranking_container {
+	border: 1px solid #ccc; /* 테두리 스타일과 색상 설정 */
+    padding: 20px; /* 테두리와 사진 사이의 간격 설정 */
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+
+.ranking_box {
+    padding: 10px; /* 테두리와 사진 사이의 간격 설정 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개의 동일한 너비의 열 */
+    gap: 20px; /* 그리드 아이템 사이의 간격 */   
+}
+
+.title {
+    display: grid;
+    place-items: center; /* 요소를 가운데 정렬 */
+}
+.rank_info{
+	border: 1px solid #ccc; /* 테두리 스타일과 색상 설정 */
+	padding:10px;
+	width:150px;
+	height:100px;
+}
+
+
+.gauge {
+    background-color: #3498db; /* 게이지의 배경색 */
+    height: 10px; /* 게이지의 높이를 20px로 설정 */
+    border: 1px solid #ccc; /* 게이지의 테두리 */
+}
+
+.gauge-inner {
+    background-color: #2ecc71; /* 게이지의 색상 */
+    height: 100%; /* 게이지의 높이를 100%로 설정하여 게이지의 너비를 조절합니다. */
+}
+
+.chart_box {
+	border: 1px solid #ccc; /* 테두리 스타일과 색상 설정 */
+    padding: 20px; /* 테두리와 사진 사이의 간격 설정 */
+    margin-top: 340px;
+    margin-left: 20px; /* playerInfo_Container와의 간격을 설정합니다. */
+    margin-right: 20px;
+}
+
+.chart_box table {
+    width:1000px;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+}
+
+
+
+/* 표의 헤더 셀 스타일링 */
+.chart_box th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 0px;
+    width:100px;
+    text-align: center;
+}
+
+/* 표의 데이터 셀 스타일링 */
+.chart_box td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    width:200px;
+    text-align: center;
+}
+
+/* 홀수 행 배경색 스타일링 */
+.chart_box tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+
+/* footer */
+footer {
+	width: 100%;
+	background: #333;
+	padding: 100px 0px;
+	border-top: 1px solid #888;
+}
+
+footer .inner {
+	width: 1180px;
+	margin: 0px auto;
+	background: #333;
+}
+
+footer .inner .upper {
+	width: 100%;
+	border-bottom: 1px solid #777;
+	padding-bottom: 20px;
+}
+
+footer .inner .upper::after {
+	/*상단 영역 float해제*/
+	content: "";
+	display: block;
+	clear: both;
+}
+
+footer .inner .upper h1 {
+	float: left;
+	font-family: 'Giants-Bold', sans-serif;
+	font-size: 24px/1;
+	color: #666;
+}
+
+footer .inner .upper ul {
+	float: right;
+}
+
+footer .inner .upper ul li {
+	float: left;
+	margin-left: 20px;
+}
+
+footer .inner .upper ul li a {
+	font-family: 'Giants-Regular', sans-serif;
+	font-size: 14px/1;
+	color: #666;
+}
+
+footer .inner .lower {
+	width: 100%;
+	padding-top: 20px;
+}
+
+footer .inner .lower address {
+	width: 100%;
+	font-family: 'Giants-Regular', sans-serif;
+	font-size: 12px/1.3;
+	color: #777;
+	margin-bottom: 20px;
+}
+
+footer .inner .lower p {
+	width: 100%;
+	font-family: 'Giants-Regular', sans-serif;
+	font-size: 12px/1;
+	color: #777;
+}
