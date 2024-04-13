@@ -11,6 +11,16 @@
 <%-- <script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script> --%>
 <link rel="stylesheet" href="/css/style.css">
 <script src="js/ie.js"></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<script>
+	function updatePopup(updateNum){
+		var url = "admin/updatePopup?id="+updateNum;
+		var name = "updatePopup";
+		var option = "width = 600, height = 600, top = 100, left = 500, location = no";
+		window.open(url, name, option);
+	}
+</script>
 </head>
 
 <body>
@@ -24,39 +34,35 @@
 			</ul>
 		</div>
 		<!-- Global Navigation Bar, 상단 메뉴바-->
-		<ul id="adminGnb">	
-            <li>
-                <a href="profile">선수정보 수정</a>
-            </li>
-            <li>
-                <a href="team">팀 정보 수정</a>
-            </li>
-            <li>
-            	<a href="board">게시글 정보 수정</a>
-            </li>
-        </ul>
+		<ul id="adminGnb">
+			<li><a href="profile">선수정보 수정</a></li>
+			<li><a href="team">팀 정보 수정</a></li>
+			<li><a href="board">게시글 정보 수정</a></li>
+		</ul>
 	</header>
 
 	<main class="adminMain">
 		<div class="adminMainDiv">
 			<table class="adminTable table-bordered table-hover">
 				<tr>
-					<th class="num">번호</th>
+					<th class="id">번호</th>
 					<th class="name">이름</th>
 					<th class="job">보직</th>
-					<th class="id">ID</th>
 					<th class="update">정보수정</th>
 				</tr>
-				
-				<script>
-					function updatePopup(updateNum){
-						var url = "updateMgrPopup.checkSwing?num="+updateNum;
-						var name = "updatePopup";
-						var option = "width = 600, height = 600, top = 100, left = 500, location = no";
-						window.open(url, name, option);
-					}
-				</script>
-				
+				<c:forEach var="profile" items="${list}">
+					<tr>
+						<td>${profile.id}</td>
+						<td>${profile.name}</td>
+						<td>${profile.position}</td>
+
+						<td><input type="button" value="정보수정" class="updateBtn"
+							onclick="javascript:updatePopup(${profile.id})"></td>
+					</tr>
+				</c:forEach>
+
+
+
 
 			</table>
 		</div>

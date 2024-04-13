@@ -19,11 +19,30 @@ import com.checkSwing.user.service.ProfileService;
 
 @Controller
 public class AdminController {
+	
+
+	@Autowired
+	private ProfileService profileService;
 
 	@GetMapping("/admin")
 	public String index(Model model) {
+		model.addAttribute("list", profileService.getAllProfiles());
 		return "admin/adminIndex";
 	}
+
+	@GetMapping("/admin/updatePopup")
+	public String profileUpdatePopUp(@RequestParam(value = "id", required = true) int id, 
+									 Model model) {
+		model.addAttribute("info", profileService.getProfileById(id));
+		return "admin/profileUpdatePopup";
+	}
+
+	@GetMapping("/admin/updateProfile")
+	public String profileUpdateProfile(Model model) {
+		model.addAttribute("list", profileService.getAllProfiles());
+		return "admin/adminIndex";
+	}
+
 	
 	@GetMapping("/admin/profile")
 	public String profileUpdate(Model model) {

@@ -47,7 +47,7 @@
 					<th class="id">ID</th>
 					<th class="update">정보수정</th>
 				</tr>
-				
+
 				<script>
 					function updatePopup(updateNum){
 						var url = "updateMgrPopup.checkSwing?num="+updateNum;
@@ -56,7 +56,7 @@
 						window.open(url, name, option);
 					}
 				</script>
-				
+
 
 			</table>
 		</div>
