@@ -12,17 +12,38 @@
 <link rel="icon" href="img/logo.jpeg" type="image/x-icon">
 <%-- <script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script> --%>
 <link rel="stylesheet" href="/css/style.css">
-<script src="js/ie.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
-	$(document).ready(function() {
-		// 게이지의 너비를 조절합니다.
-		$('.gauge').each(function() {
-			var width = $(this).width();
-			$(this).children('.gauge-inner').css('width', width);
-		});
-	});
+$(document).ready(function() {
+    // 게이지의 너비를 조절합니다.
+    $('.gauge').each(function() {
+        var width = $(this).width();
+        $(this).children('.gauge-inner').css('width', width);
+    });
+
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    // 현재 URL에서 team 값을 가져옵니다.
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    var team = urlParams.get('team');
+
+    // 팀에 따라 배경 이미지를 설정합니다.
+    var backgroundImageUrl = '';
+    if (team === '롯데') {
+        backgroundImageUrl = '../catchphraseImg/catch_lotte_2024.jpg';
+    } else if (team === '두산') {
+        backgroundImageUrl = '../catchphraseImg/catch_doosan_2024.jpg';
+    } // 다른 팀에 대한 경우에도 동일한 방식으로 처리할 수 있습니다.
+
+    // .container의 배경 이미지를 설정합니다.
+    document.getElementById('container').style.backgroundImage = "url('" + backgroundImageUrl + "')";
+});
+
+
 </script>
+
 </head>
 <body>
 	<header class="top-bar">
@@ -89,7 +110,7 @@
 			</ul>
 		</div>
 	</header>
-	<div class="container">
+	<div class="container" id = "container">
 		<section class="section_wrap">
 			<div class="top_pagename">
 				<h1>타자 정보</h1>

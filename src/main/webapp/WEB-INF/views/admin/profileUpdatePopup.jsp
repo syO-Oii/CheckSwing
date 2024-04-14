@@ -11,28 +11,53 @@
 <link rel="stylesheet" href="/css/style.css">
 <script src="js/ie.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<script>
+    function updateProfile() {
+        // 각 요소에서 선택된 값을 가져옵니다.
+        var id = document.getElementById("id").value; // 이 부분은 서버 측에서 전달된 값으로 대체되어야 합니다.
+        var name = document.getElementById("name").value;
+        var position = document.getElementById("position").value;
+        var team = document.getElementById("team").value;
+        var tota = document.getElementById("tota").value;
+
+        // 폼의 액션 속성을 동적으로 설정합니다.
+        var form = document.getElementById("profileForm");
+        form.action = 'setProfileUpdate?id=' + id + '&name=' + name + '&position=' + position + '&team=' + team + '&tota=' + tota;
+
+        // 폼을 제출합니다.
+        form.submit();   
+    }
+    if(${param.success}){
+    	alert("프로필이 성공적으로 업데이트되었습니다.");
+        window.opener.location.reload(); // 부모 창 새로고침
+        window.close(); // 팝업 창 닫기	
+    }
+    
+</script>
+
 </head>
 
 <body>
-
+	
 	<header class="adminHeader">
 		<div class="adminInner">
 			<h1>선수 정보 수정</h1>
 		</div>
 	</header>
 
-	<form action="updateProfile" method="post">
+	<form action="setProfileUpdate" method="post">
 		<c:forEach var="info" items="${info}">
 			<table class="updateAdminTable">
-
 				<tr>
-					<th>아이디</th>
-					<td><input type="text" id="id11" name="id11" maxlength="20"
-						value="${info.id}" readonly></td>
+					<th>고유번호</th>
+					<td><input type="text" id="id" name="id"
+						maxlength="20" value="${info.id}"></td>
 				</tr>
+			
 				<tr>
 					<th>이름</th>
-					<td><input type="text" id="name11" name="name11"
+					<td><input type="text" id="name" name="name"
 						maxlength="20" value="${info.name}"></td>
 				</tr>
 				<tr>
@@ -66,16 +91,24 @@
 							<option value="키움" ${info.team == '키움' ? 'selected' : ''}>키움</option>
 					</select></td>
 				</tr>
+				<tr>
+					<th>투타</th>
+					<td><select id="tota" name="tota" size="1">
+							<option value="우투우타" ${info.team == '우투우타' ? 'selected' : ''}>우투우타</option>
+							<option value="우투좌타" ${info.team == '우투좌타' ? 'selected' : ''}>우투좌타</option>
+							<option value="좌투우타" ${info.team == '좌투우타' ? 'selected' : ''}>좌투우타</option>
+							<option value="좌투좌타" ${info.team == '좌투좌타' ? 'selected' : ''}>좌투좌타</option>
+					</select></td>
+				</tr>
 
 			</table>
 
 			<br>
 			<input type="submit" class="submitAdminBtn" value="수정">
-			<input type="button" class="deleteAdminBtn" value="삭제"
-				onclick="location.href='deleteAdmin.jsp?num=${info.id}'">
+			<input type="button" class="deleteProfileBtn" value="삭제"
+				onclick="location.href='deleteProfile.jsp?num=${info.id}'">
 		</c:forEach>
 	</form>
-
 </body>
 
 </html>

@@ -88,6 +88,7 @@ public class UserController {
 	@GetMapping("/player")
 	public String playerInfo(@RequestParam(value = "id", required = false) int id, 
 							 @RequestParam(value = "position", required = false) String position,
+							 @RequestParam(value = "team", required = false) String team,
 							 Model model) {
 
 		List<Profile> profileList = profileService.getProfileById(id);

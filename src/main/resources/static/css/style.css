@@ -552,6 +552,11 @@ figure .inner a:hover {
     align-items: flex-start;
     width: 100%;
     height: 100%;
+    background-image: url('../catchphraseImg/catch_lotte2_2024.jpg');
+    color: yellow; 
+    /*background-size: cover; /* 배경 이미지를 창 크기에 맞게 조절합니다. */
+    background-position: center; /* 배경 이미지를 가운데 정렬합니다. */
+    background-repeat: no-repeat; /* 배경 이미지 반복을 중지합니다. */
 }
 
 .section_wrap {

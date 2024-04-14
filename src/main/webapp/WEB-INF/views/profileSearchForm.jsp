@@ -109,7 +109,7 @@
 						</tr>
 						<c:forEach var="profile" items="${list}">
 							<tr>
-								<td><a href="player?id=${profile.id}&position=${profile.position}">${profile.name}</a></td>
+								<td><a href="player?id=${profile.id}&position=${profile.position}&team=${profile.team}">${profile.name}</a></td>
 								<td><a href="selectTeam?team=${profile.team}">${profile.team}</a></td>
 								<td>${profile.birth}</td>
 								<td>${profile.position}</td>
@@ -118,8 +118,6 @@
 						</c:forEach>
 					</table>
 				</div>
-
-			</div>
 		</section>
 	</div>
 	<footer>

@@ -25,15 +25,9 @@
 		</div>
 		<!-- Global Navigation Bar, 상단 메뉴바-->
 		<ul id="adminGnb">	
-            <li>
-                <a href="profile">선수정보 수정</a>
-            </li>
-            <li>
-                <a href="team">팀 정보 수정</a>
-            </li>
-            <li>
-            	<a href="board">게시글 정보 수정</a>
-            </li>
+            <li><a href="admin/profile">선수 정보 수정</a></li>
+			<li><a href="admin/status">선수 기록 수정</a></li>
+			<li><a href="admin/board">게시글 정보 수정</a></li>
         </ul>
 	</header>
 

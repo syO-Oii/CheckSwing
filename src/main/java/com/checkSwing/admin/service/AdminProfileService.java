@@ -6,13 +6,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.checkSwing.admin.repository.AdminProfileMapper;
 import com.checkSwing.user.model.Profile;
 import com.checkSwing.user.repository.ProfileMapper;
 
 @Service
 public class AdminProfileService {
 	@Autowired
+	private AdminProfileMapper adminProfileMapper;
+	
+	@Autowired
 	private ProfileMapper profileMapper;
+	
+	
+	@Transactional
+	public void profileUpdate(int id, 
+				String name, String position, String team, String tota){
+		adminProfileMapper.setProfileUpdate(id, name, position, team, tota);
+		System.out.println(position);
+	}
+	
+	
 	
 	@Transactional
 	public List<Profile> getProfileById(int id) {
@@ -41,19 +55,5 @@ public class AdminProfileService {
 		return profileMapper.selectHitterProfile();
 	}
 	
-//	@Transactional
-//	public void addProfile(Profile profile) {
-//		profileMapper.insertProfile(profile);
-//	}
-	
-	
-//	@Transactional
-//	public void updateProfile(Profile profile) {
-//		profileMapper.updateProfile(profile);
-//	}
-	
-//	@Transactional
-//	public void deleteProfile(Profile profile) {
-//		profileMapper.deleteProfile(profile);
-//	}
+
 }
