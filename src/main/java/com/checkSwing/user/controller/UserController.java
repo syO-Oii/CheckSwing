@@ -127,7 +127,7 @@ public class UserController {
 			model.addAttribute("hitter", hitterStatusList);
 			model.addAttribute("rank", hitterRank);
 			
-			return "hitterInfoForm";
+			return "hitterInfoForm2";
 		}
 		
 	}
