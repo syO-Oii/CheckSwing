@@ -138,8 +138,17 @@ header .inner #gnb li ul li a {
     display: block;
 }
 
+header .inner .search {
+	position: absolute;
+    top: 35%;
+    left: 80%;
+    width: 100%;
+}
 
-
+header .inner .search input{
+	height : 30px;
+	border-radius: 5px;
+}
 
 .mySlideDiv img {
     width: 100%; /* 이미지의 너비를 부모 요소에 맞게 조절합니다. */
@@ -247,37 +256,7 @@ header .inner #gnb li ul li a {
 	background-color: #0056b3;
 }
 
-.profileTable {
-  width: 800px;
-  border-collapse: collapse;
-  border: 1px solid #ddd; /* 테이블 테두리 스타일 */
-}
 
-#container > div > div.playerInfo_profile > dl {
-	margin-top:20px;
-}
-
-
-#container > div > div.playerInfo_profile > dl > dt {
-	display: block;
-    float: left;
-    width: 150px;
-    font-size: 35px;
-    color: #fff;
-    margin: 5px 0px;
-    font-weight: bold;
-}
-
-#container > div > div.playerInfo_profile > dl > dd{
-	display: block;
-    float: left;
-    width: 360px;
-    border-left: none;
-    font-size: 25px;
-    padding-left: 15px;
-    margin: 5px 0px;
-    color: #fff;
-}
 
 
 
@@ -574,10 +553,16 @@ figure .inner a:hover {
 }
 
 .section_wrap {
-	margin : 20px;
+	padding : 20px;
 	width:100%;
     height:100%;
     flex-direction: column; /* 요소들을 수평으로 배치합니다. */
+    background: #F0F0F0;
+}
+
+.section_wrap .top_pagename p{
+	font-size : 40px;
+	font-family: 'Giants-Regular', sans-serif;
 }
 
 /* 선수 정보 조회 */
@@ -588,16 +573,65 @@ figure .inner a:hover {
     width: 100%;
     height: 600px;
     margin-top:20px;
+}
+
+
+.InfoContainer {
+    display: flex; /* 컨테이너를 플렉스 박스로 설정합니다. */
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 600px;
     background-image: url('../catchphraseImg/catch_lotte2_2024.jpg');
     background-repeat: no-repeat; /* 배경 이미지 반복을 중지합니다. */
     background-position: center top;
 }
 
-.playerImage img {
-	margin-top:50px;
-	margin-left:15px;
-	width:580px;
-	height:550px;
+.profileTable {
+  width: 800px;
+  border-collapse: collapse;
+  border: 1px solid #ddd; /* 테이블 테두리 스타일 */
+}
+
+#InfoContainer > div > div.playerInfo_profile > dl {
+	margin-top:20px;
+}
+
+
+#InfoContainer > div > div.playerInfo_profile > dl > dt {
+	display: block;
+    float: left;
+    width: 150px;
+    font-size: 35px;
+    color: #fff;
+    margin: 5px 0px;
+    font-weight: bold;
+}
+
+#InfoContainer > div > div.playerInfo_profile > dl > dd{
+	display: block;
+    float: left;
+    width: 500px;
+    border-left: none;
+    font-size: 25px;
+    padding-left: 15px;
+    margin: 5px 0px;
+    color: #fff;
+}
+
+.teamLogo {
+	max-width: 400px;
+	max-height:400px;
+	position: relative;
+	float:right;
+	margin-top:-280px;
+	margin-right:-50px;
+}
+
+.teamLogo img {
+	width:350px;
+	height:350px;
+	opacity: 0.7; /* 반투명도 조절 */
 }
 
 .playerInfo_Container {
@@ -606,9 +640,13 @@ figure .inner a:hover {
     margin:auto;
 }
 
+.playerInfo_Container .playerImage {
+	margin-top:30px;
+}
+
 .playerInfo_profile {
 	float:left;
-	width:460px;
+	width:450px;
     padding-left: 0; /* 테두리와 사진 사이의 간격 설정 */
     padding-top:100px;
     position: relative;
@@ -625,48 +663,45 @@ figure .inner a:hover {
     padding-bottom:20px;
 }
 
-.name img {
-	width:105px;
-	height:75px;
-	float: right; /* 이미지를 우측으로 띄웁니다. */
-    margin-left: 10px; /* 이미지와 텍스트 사이의 간격을 조정합니다. */
-    margin-top: 6px;
-}
 
-
-.playerInfo_profile img {
-    position: relative;
-    top: 100%;
-    left: -36%;
-    transform: translate(0%, 0%);
-}
 
 .ranking_container {
-	border: 1px solid #ccc; /* 테두리 스타일과 색상 설정 */
-    padding: 20px; /* 테두리와 사진 사이의 간격 설정 */
-    margin-top: 20px;
-    margin-left: 20px;
+	width : 900px;
+	position: relative;
+    z-index: 1;
+	margin: -60px auto 0;
 }
 
 
 .ranking_box {
-    padding: 10px; /* 테두리와 사진 사이의 간격 설정 */
+    padding: 1px; /* 테두리와 사진 사이의 간격 설정 */
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3개의 동일한 너비의 열 */
-    gap: 20px; /* 그리드 아이템 사이의 간격 */   
+    grid-template-columns: repeat(6, 1fr); /* 6개의 동일한 너비의 열 */
+    gap: 1px; /* 그리드 아이템 사이의 간격 */
 }
 
 .title {
     display: grid;
     place-items: center; /* 요소를 가운데 정렬 */
 }
+
 .rank_info{
-	border: 1px solid #ccc; /* 테두리 스타일과 색상 설정 */
 	padding:10px;
-	width:150px;
+	width:120px;
 	height:100px;
+	background-color: rgb(208, 15, 49);
+	border-radius:5px;
+	color:yellow;
+	font-family: 'Giants-Bold', sans-serif;
+	font-size: 20px;
+	text-align: center;
+	letter-spacing: 2px;
+	z-index:1;
 }
 
+.rank_info span{
+	color:white;
+}
 
 .gauge {
     background-color: #3498db; /* 게이지의 배경색 */
@@ -684,22 +719,35 @@ figure .inner a:hover {
 }
 
 .chart_box {
-	border: 1px solid #ccc; /* 테두리 스타일과 색상 설정 */
-    padding: 20px; /* 테두리와 사진 사이의 간격 설정 */
+	padding: 20px; /* 테두리와 사진 사이의 간격 설정 */
     margin-top: 20px;
     margin-left: 20px; /* playerInfo_Container와의 간격을 설정합니다. */
     margin-right: 20px;
 }
 
-.chart_box table {
-    width:1000px;
-    border-collapse: collapse;
-    border: 1px solid #ddd;
-    font-family: Arial, sans-serif;
-    font-size: 11px;
+.chart_box p {
+	font-family: 'Giants-Regular', sans-serif;
+    font-size: 25px;
+	color: rgb(208, 15, 49);
+	margin: 20px;
 }
 
+.chart_box table {
+    width:1100px;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    font-family: 'Giants-Regular', sans-serif;
+    font-size: 15px;
+	color: #666;
+}
 
+.chart_box table th {
+    height:50px;
+}
+
+.chart_box table tr {
+    height:50px;
+}
 
 /* 표의 헤더 셀 스타일링 */
 .chart_box th {

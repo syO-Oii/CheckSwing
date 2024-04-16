@@ -102,12 +102,6 @@ document.addEventListener("DOMContentLoaded", function() {
 				<!-- 게시판 -->
 			</ul>
 
-			<div class="search">
-				<form method="get" action="searchName">
-					<input type="text" name="searchName"> <input
-						type="submit" value="검색">
-				</form>
-			</div>
 			<ul class="util">
 				<li><a href="#">Contact</a></li>
 				<li><a href="#">Help</a></li>
@@ -116,54 +110,74 @@ document.addEventListener("DOMContentLoaded", function() {
 			</ul>
 		</div>
 	</header>
-	<section class="section_wrap">
-		<div class="top_pagename">
-			<p>타자 정보</p>
-		</div>
-	</section>
-	<div class="InfoContainer" id="InfoContainer">
-		<div class="playerInfo_Container">
-			<c:forEach var="profile" items="${list}">
-				<div class="playerImage">
-					<img src="playerImg2/${profile.id }.png" width="620px"
-						height="570px">
-				</div>
+	<div class="InfoContainer" id = "InfoContainer">
+		<section class="section_wrap">
+			<div class="top_pagename">
+				<h1>타자 정보</h1>
+				<p></p>
+				<hr />
+			</div>
+			<div class="search">
+				<form method="get" action="searchName">
+					이름 <input type="text" name="searchName"> <input
+						type="submit" value="검색">
+				</form>
+			</div>
+			<div class="playerInfo_Container">
 				<div class="playerInfo_profile">
 					<table class="profileTable">
-
-						<p class="name">
-							<strong>${profile.name}</strong>
-						</p>
-						<dl>
-							<dt>생년월일</dt>
-							<dd>${profile.birth}</dd>
-
-							<dt>수비위치</dt>
-							<dd>${profile.position}</dd>
-
-							<dt>투타</dt>
-							<dd>${profile.tota}</dd>
-						</dl>
-
+						<c:forEach var="profile" items="${list}">
+							<tr>
+								<td><img src="playerImg/${profile.id}.png" width="100"
+									height="100" alt="{profile.name}"></td>
+							</tr>
+							<tr>
+								<th>이름</th>
+								<th><a
+									href="player?id=${profile.id}&position=${profile.position}">${profile.name}</a></th>
+							</tr>
+							<tr>
+								<th>소속팀</th>
+								<th><a href="selectTeam?team=${profile.team}">${profile.team}</a></th>
+							</tr>
+							<tr>
+								<th>생년월일</th>
+								<th>${profile.birth}</th>
+							</tr>
+							<tr>
+								<th>포지션</th>
+								<th>${profile.position}</th>
+							</tr>
+							<tr>
+								<th>투구타격</th>
+								<th>${profile.tota}</th>
+							</tr>
+						</c:forEach>
 					</table>
-
-					<div class="teamLogo">
-						<img src="teamLogo/${profile.team }.png" alt="팀로고">
-					</div>
 				</div>
-			</c:forEach>
-		</div>
-	</div>
-	
-	<div class="ranking_container">
+
+				<div class="ranking_container">
+					<div class="title">
+						<h3>타격 지표 순위</h3>
+					</div>
+
 					<div class="ranking_box">
+
 						<div class="graph_box">
 							<div class="rank_info">
 								<c:forEach var="rank" items="${rank}">
 							
-							AVG<br>
-							<span>${rank.avg}</span><br>
+							AVG :
+							<span>${rank.avg}</span>
+							AVG_Rank : 
 							<span>${rank.avgRank}위</span>
+									<br />
+									<br />
+									<div class="gauge-container">
+										<div class="gauge" style="width: ${rank.avgPercentile}%">
+											<div class="gauge-inner"></div>
+										</div>
+									</div>
 								</c:forEach>
 							</div>
 						</div>
@@ -171,10 +185,17 @@ document.addEventListener("DOMContentLoaded", function() {
 							<div class="rank_info">
 								<c:forEach var="rank" items="${rank}">
 							
-							OBP<br>
-							<span>${rank.obp}</span><br>
+							OBP :
+							<span>${rank.obp}</span>
+							OBP_Rank : 
 							<span>${rank.obpRank}위</span>
-
+									<br />
+									<br />
+									<div class="gauge-container">
+										<div class="gauge" style="width: ${rank.obpPercentile}%">
+											<div class="gauge-inner"></div>
+										</div>
+									</div>
 								</c:forEach>
 							</div>
 						</div>
@@ -182,9 +203,17 @@ document.addEventListener("DOMContentLoaded", function() {
 							<div class="rank_info">
 								<c:forEach var="rank" items="${rank}">
 							
-							SLG<br>
-							<span>${rank.slg}</span><br>
+							SLG :
+							<span>${rank.slg}</span>
+							SLG_Rank : 
 							<span>${rank.slgRank}위</span>
+									<br />
+									<br />
+									<div class="gauge-container">
+										<div class="gauge" style="width: ${rank.slgPercentile}%">
+											<div class="gauge-inner"></div>
+										</div>
+									</div>
 								</c:forEach>
 							</div>
 						</div>
@@ -193,9 +222,17 @@ document.addEventListener("DOMContentLoaded", function() {
 							<div class="rank_info">
 								<c:forEach var="rank" items="${rank}">
 							
-							OPS<br>
-							<span>${rank.ops}</span><br>
+							OPS :
+							<span>${rank.ops}</span>
+							OPS_Rank : 
 							<span>${rank.opsRank}위</span>
+									<br />
+									<br />
+									<div class="gauge-container">
+										<div class="gauge" style="width: ${rank.opsPercentile}%">
+											<div class="gauge-inner"></div>
+										</div>
+									</div>
 								</c:forEach>
 							</div>
 						</div>
@@ -204,9 +241,17 @@ document.addEventListener("DOMContentLoaded", function() {
 							<div class="rank_info">
 								<c:forEach var="rank" items="${rank}">
 							
-							RBI<br>
-							<span>${rank.rbi}</span><br>
+							RBI :
+							<span>${rank.rbi}</span>
+							RBI_Rank : 
 							<span>${rank.rbiRank}위</span>
+									<br />
+									<br />
+									<div class="gauge-container">
+										<div class="gauge" style="width: ${rank.rbiPercentile}%">
+											<div class="gauge-inner"></div>
+										</div>
+									</div>
 								</c:forEach>
 							</div>
 						</div>
@@ -215,54 +260,85 @@ document.addEventListener("DOMContentLoaded", function() {
 							<div class="rank_info">
 								<c:forEach var="rank" items="${rank}">
 							
-							홈런<br>
-							<span>${rank.homerun}</span><br>
+							홈런 :
+							<span>${rank.homerun}</span>
+									<br>
+							홈런_Rank : 
 							<span>${rank.hrRank}위</span>
+									<br />
+									<br />
+									<div class="gauge-container">
+										<div class="gauge" style="width: ${rank.hrPercentile}%">
+											<div class="gauge-inner"></div>
+										</div>
+									</div>
 								</c:forEach>
 							</div>
 						</div>
 
 					</div>
 				</div>
-	
-	<div class="chartContainer">
-		<div class="chart_box">
-			<p>경기 기록</p>
-			<table class="StatusTable">
-				<tr>
-					<th>경기수</th>
-					<th>타수</th>
-					<th>안타</th>
-					<th>2루타</th>
-					<th>3루타</th>
-					<th>홈런</th>
-					<th>타점</th>
-					<th>도루</th>
-					<th>볼넷</th>
-					<th>사구</th>
-					<th>삼진</th>
-					<th>득점</th>
+			</div>
 
-				</tr>
-				<c:forEach var="hitter" items="${hitter}">
+			<div class="chart_box">
+				<table class="StatusTable">
 					<tr>
-						<td>${hitter.game}</td>
-						<td>${hitter.ab}</td>
-						<td>${hitter.hits}</td>
-						<td>${hitter.doubleHits}</td>
-						<td>${hitter.tripleHits}</td>
-						<td>${hitter.homerun}</td>
-						<td>${hitter.rbi}</td>
-						<td>${hitter.sb}</td>
-						<td>${hitter.bb}</td>
-						<td>${hitter.hp}</td>
-						<td>${hitter.so}</td>
-						<td>${hitter.runs}</td>
+						<th>경기수</th>
+						<th>타석</th>
+						<th>실질타석</th>
+						<th>타수</th>
+						<th>득점</th>
+						<th>안타</th>
+						<th>2루타</th>
+						<th>3루타</th>
+						<th>홈런</th>
+						<th>루타</th>
+						<th>타점</th>
+						<th>도루성공</th>
+						<th>도루실패</th>
+						<th>볼넷</th>
+						<th>사구</th>
+						<th>고의볼넷</th>
+						<th>삼진</th>
+						<th>병살타</th>
+						<th>희생타</th>
+						<th>희생플라이</th>
+						<th>AVG</th>
+						<th>OBP</th>
+						<th>SLG</th>
+						<th>OPS</th>
 					</tr>
-				</c:forEach>
-			</table>
-		</div>
-
+					<c:forEach var="hitter" items="${hitter}">
+						<tr>
+							<td>${hitter.game}</td>
+							<td>${hitter.pa}</td>
+							<td>${hitter.epa}</td>
+							<td>${hitter.ab}</td>
+							<td>${hitter.runs}</td>
+							<td>${hitter.hits}</td>
+							<td>${hitter.doubleHits}</td>
+							<td>${hitter.tripleHits}</td>
+							<td>${hitter.homerun}</td>
+							<td>${hitter.tb}</td>
+							<td>${hitter.rbi}</td>
+							<td>${hitter.sb}</td>
+							<td>${hitter.cs}</td>
+							<td>${hitter.bb}</td>
+							<td>${hitter.hp}</td>
+							<td>${hitter.ib}</td>
+							<td>${hitter.so}</td>
+							<td>${hitter.gdp}</td>
+							<td>${hitter.sh}</td>
+							<td>${hitter.sf}</td>
+							<td>${hitter.avg}</td>
+							<td>${hitter.obp}</td>
+							<td>${hitter.slg}</td>
+							<td>${hitter.ops}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
+		</section>
 	</div>
 	<footer>
 		<div class="inner">
