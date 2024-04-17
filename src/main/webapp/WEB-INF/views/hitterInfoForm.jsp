@@ -55,12 +55,13 @@ document.addEventListener("DOMContentLoaded", function() {
 			</div>
 
 			<ul id="gnb">
-				<li><a href="profileAll">선수정보 조회</a>
-					<ul>
-						<li><a href="team">구단 정보 조회</a></li>
+				<li>
+                	<a href="search">선수정보 조회</a>
+                	<ul>
 						<li><a href="pitcherInfo">투수 정보 조회</a></li>
 						<li><a href="hitterInfo">타자 정보 조회</a></li>
-					</ul></li>
+                	</ul>
+            	</li>
 
 				<li><a href="#">팀 정보 조회</a>
 					<ul>

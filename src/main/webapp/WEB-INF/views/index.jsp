@@ -22,12 +22,13 @@
 				</a>
 			</div>
 			<ul id="gnb">
-				<li><a href="profileAll">선수정보 조회</a>
-					<ul>
-						<li><a href="team">구단 정보 조회</a></li>
+				<li>
+                	<a href="search">선수정보 조회</a>
+                	<ul>
 						<li><a href="pitcherInfo">투수 정보 조회</a></li>
 						<li><a href="hitterInfo">타자 정보 조회</a></li>
-					</ul></li>
+                	</ul>
+            	</li>
 
 				<li><a href="#">팀 정보 조회</a>
 					<ul>
@@ -78,11 +79,12 @@
 		</div>
 	</header>
 	<div class="slideshow-container">
-		<div class="mySlideDiv fade">
-			<img alt="배너2" src="img/banner3.jpg">
+		<div class="mainSlideDiv fade">
+			<img alt="배너2" src="img/banner2.png">
+			<img alt="배너3" src="img/banner3.jpg">
 		</div>
 	</div>
-
+	<script type="text/javascript" src="script/slide.js"></script>
 
 	<section class = "main_section">
 		<div class="inner">

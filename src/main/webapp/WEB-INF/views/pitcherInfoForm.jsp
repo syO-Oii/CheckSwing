@@ -26,12 +26,13 @@
 			</div>
 
 			<ul id="gnb">
-				<li><a href="profileAll">선수정보 조회</a>
-					<ul>
-						<li><a href="team">구단 정보 조회</a></li>
+				<li>
+                	<a href="search">선수정보 조회</a>
+                	<ul>
 						<li><a href="pitcherInfo">투수 정보 조회</a></li>
 						<li><a href="hitterInfo">타자 정보 조회</a></li>
-					</ul></li>
+                	</ul>
+            	</li>
 
 				<li><a href="#">팀 정보 조회</a>
 					<ul>
@@ -132,17 +133,17 @@
 			<c:forEach var="rank" items="${rank}">
 				<div class="graph_box">
 					<div class="rank_info">
-						BB<br> <span>${rank.bb}</span> <span>${rank.bbRank}위</span>
+						BB<br> <span>${rank.bb}개</span><br><span>${rank.bbRank}위</span>
 					</div>
 				</div>
 				<div class="graph_box">
 					<div class="rank_info">
-						삼진<br> <span>${rank.so}</span> <span>${rank.soRank}위</span>
+						삼진<br> <span>${rank.so}개</span><br><span>${rank.soRank}위</span>
 					</div>
 				</div>
 				<div class="graph_box">
 					<div class="rank_info">
-						ERA<br> <span>${rank.era}</span> <span>${rank.eraRank}위</span>
+						ERA<br> <span>${rank.era}</span><br><span>${rank.eraRank}위</span>
 
 					</div>
 				</div>

@@ -2,6 +2,8 @@ package com.checkSwing.user.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,28 +43,70 @@ public class UserController {
 		return "index";
 	}
 	
-	@GetMapping("/profileAll")
-	public String profileAll(Model model) {
-		model.addAttribute("list", profileService.getAllProfiles());
-		return "profileSearchForm";
+	
+	@GetMapping("/search")
+	public String profileTeam(@RequestParam(defaultValue = "1") int page, Model model, HttpServletRequest request) {
+		int pageSize = 10;
+		List<Profile> allProfiles = profileService.getAllProfiles();
+	    
+	    // 현재 페이지에 해당하는 항목들을 추출
+	    List<Profile> pagedList = getPagedList(allProfiles, page, pageSize);
+	    
+	    // 총 페이지 수 계산
+	    int totalPages = (int) Math.ceil((double) allProfiles.size() / pageSize);
+	    
+	    // 현재 요청된 URL 가져오기
+	    String currentUrl = request.getRequestURI();
+	    // 컨텍스트 경로 가져오기
+	    String contextPath = request.getContextPath();
+	    
+	    // 컨텍스트 경로 이후의 경로를 추출하여 현재 페이지의 요청 매핑 경로 생성
+	    String currentMappingPath = currentUrl.substring(contextPath.length());
+	    
+	    model.addAttribute("list", pagedList);
+	    model.addAttribute("totalPages", totalPages);				  // 총 페이지 계산
+	    model.addAttribute("currentMappingPath", currentMappingPath); // 모델에 현재 페이지의 매핑 경로 추가
+		return "searchProfileForm";
 	}
 	
-	@GetMapping("/team")
-	public String profileTeam(Model model) {
-		model.addAttribute("list", profileService.getAllProfiles());
-		return "profileTeamForm";
+	private List<Profile> getPagedList(List<Profile> allProfiles, int page, int pageSize) {
+	    int fromIndex = (page - 1) * pageSize;
+	    int toIndex = Math.min(fromIndex + pageSize, allProfiles.size());
+	    return allProfiles.subList(fromIndex, toIndex);
 	}
 	
 	@GetMapping("/pitcherInfo")
-	public String profilePitcher(Model model) {
-		model.addAttribute("list", profileService.getPitcherProfiles());
-		return "profileTeamForm";
+	public String profilePitcher(@RequestParam(defaultValue = "1") int page, Model model, HttpServletRequest request) {
+		int pageSize = 10;
+		List<Profile> pitcherProfiles = profileService.getPitcherProfiles();
+	    List<Profile> pagedList = getPagedList(pitcherProfiles, page, pageSize);
+	    int totalPages = (int) Math.ceil((double) pitcherProfiles.size() / pageSize);
+	
+	    String currentUrl = request.getRequestURI();
+	    String contextPath = request.getContextPath();
+	    String currentMappingPath = currentUrl.substring(contextPath.length());
+	    
+		model.addAttribute("list", pagedList);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentMappingPath", currentMappingPath); // 모델에 현재 페이지의 매핑 경로 추가
+		return "searchProfileForm";
 	}
 	
 	@GetMapping("/hitterInfo")
-	public String profileHitter(Model model) {
-		model.addAttribute("list", profileService.getHitterProfiles());
-		return "profileTeamForm";
+	public String profileHitter(@RequestParam(defaultValue = "1") int page, Model model, HttpServletRequest request) {
+		int pageSize = 10;
+		List<Profile> hitterProfiles = profileService.getHitterProfiles();
+	    List<Profile> pagedList = getPagedList(hitterProfiles, page, pageSize);
+	    int totalPages = (int) Math.ceil((double) hitterProfiles.size() / pageSize);
+	    
+	    String currentUrl = request.getRequestURI();
+	    String contextPath = request.getContextPath();
+	    String currentMappingPath = currentUrl.substring(contextPath.length());
+	
+		model.addAttribute("list", pagedList);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentMappingPath", currentMappingPath);
+		return "searchProfileForm";
 	}
 	
 	@GetMapping("/selectTeam")
@@ -75,7 +119,7 @@ public class UserController {
 		}
 
 		model.addAttribute("list", profileList);
-		return "profileTeamForm";
+		return "searchProfileForm";
 	}
 	
 	@GetMapping("/searchName")

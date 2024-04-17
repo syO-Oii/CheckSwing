@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -18,18 +16,15 @@
 <body>
 <header class = "top-bar">
 	<div class="inner">
-		<div class = "logoContainer">
-			<a href="/">
-				<img alt="mainLogo" src="img/logo.jpeg"
-			 	width = "120px" height = "120px">
-			 </a>
-		</div>
-		
+			<div class="logoContainer">
+				<a href="/"> <img alt="mainLogo" src="img/logo.jpeg"
+					width="120px" height="120px">
+				</a>
+			</div>
         <ul id="gnb">
             <li>
-                <a href="profileAll">선수정보 조회</a>
+                <a href="search">선수정보 조회</a>
                 <ul>
-                	<li><a href="team">구단 정보 조회</a></li>
 					<li><a href="pitcherInfo">투수 정보 조회</a></li>
 					<li><a href="hitterInfo">타자 정보 조회</a></li>
                 </ul>
@@ -93,12 +88,31 @@
 				<p></p>
 				<hr />
 			</div>
-			<div class="playerInfo_header">
-					<form method="get" action="searchName">
-					이름 <input type="text" name="searchName">
+			<div class="selectTeam">
+				<form method="get" action="selectTeam">
+					팀선택
+					<select id="team" name="team" size="1">
+						<option value="all">전체</option>
+						<option value="LG">LG</option>
+						<option value="KT">KT</option>
+						<option value="SSG">SSG</option>
+						<option value="NC">NC</option>
+						<option value="두산">두산</option>
+						<option value="기아">기아</option>
+						<option value="롯데">롯데</option>
+						<option value="삼성">삼성</option>
+						<option value="한화">한화</option>
+						<option value="키움">키움</option>
+					</select>
+					<input type="submit" value="선택">
+				</form>
+				<form method="get" action="searchName">
+					<input type="text" name="searchName">
 					<input type="submit" value="검색">
-					</form>
-					
+				</form>
+			</div>		
+			<div class="team_info_main">
+				<div class="teamDiv">
 					<table class="playerList">
 						<tr>
 							<th>이름</th>
@@ -109,7 +123,7 @@
 						</tr>
 						<c:forEach var="profile" items="${list}">
 							<tr>
-								<td><a href="player?id=${profile.id}&position=${profile.position}&team=${profile.team}">${profile.name}</a></td>
+								<td><a href="player?id=${profile.id}&position=${profile.position}">${profile.name}</a></td>
 								<td><a href="selectTeam?team=${profile.team}">${profile.team}</a></td>
 								<td>${profile.birth}</td>
 								<td>${profile.position}</td>
@@ -118,6 +132,12 @@
 						</c:forEach>
 					</table>
 				</div>
+			</div>
+			<div class="pagination">
+				<c:forEach begin="1" end="${totalPages}" var="pageNumber">
+					<a href="${currentMappingPath}?page=${pageNumber}">${pageNumber}</a>
+				</c:forEach>
+			</div>
 		</section>
 	</div>
 	<footer>
@@ -143,7 +163,5 @@
             </div>
         </div>
     </footer>
-    
-    
 </body>
 </html>
