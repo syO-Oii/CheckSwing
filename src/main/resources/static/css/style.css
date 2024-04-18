@@ -150,27 +150,20 @@ header .inner .search input{
 	border-radius: 5px;
 }
 
-#slideshow-container {
-    width: 1000px; 
-    height: 800; 
-    border: 1px solid dimgrey;
-    margin: 0 auto;
+
+
+.slideshow-container {
+    max-width:1200px;
+    width:100%;
+    margin:0 auto;
 }
 
-#mainSlideDiv{
-	height: 300px;
-    overflow: hidden;
-    border-bottom: 1px solid dimgrey;
+.slideshow-container img{
+    width:100%;
+    margin:0 auto;
 }
 
-#mainSlideDiv>ul{
-    width: 3600px;
-    font-size: 0;
-}
-#mainSlideDiv>ul>li{
-    display: inline-block;
-    font-size: 0;
-}
+
 
 /* Main Styles */
 .loginMain {

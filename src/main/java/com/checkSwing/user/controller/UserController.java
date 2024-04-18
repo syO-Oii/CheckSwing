@@ -110,15 +110,31 @@ public class UserController {
 	}
 	
 	@GetMapping("/selectTeam")
-	public String selectTeam(@RequestParam(value = "team", required = false) String team, Model model) {
+	public String selectTeam(@RequestParam(defaultValue = "1") int page, @RequestParam(value = "team", required = false) String team, Model model, HttpServletRequest request) {
+		int pageSize = 10;
 		List<Profile> profileList;
+		
 		if ("all".equals(team) || team == null) {
 			profileList = profileService.getAllProfiles();
 		} else {
 			profileList = profileService.getProfileByTeam(team);
 		}
-
-		model.addAttribute("list", profileList);
+		
+		List<Profile> pagedList = getPagedList(profileList, page, pageSize);
+		int totalPages = (int) Math.ceil((double) profileList.size() / pageSize);
+		
+		String currentUrl = request.getRequestURI();
+	    String contextPath = request.getContextPath();
+	    String currentMappingPath = currentUrl.substring(contextPath.length());
+	    System.out.println(contextPath);
+		
+	    System.out.println(currentMappingPath);
+		
+				
+		model.addAttribute("list", pagedList);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentMappingPath", currentMappingPath);
+		model.addAttribute("team", team);
 		return "searchProfileForm";
 	}
 	

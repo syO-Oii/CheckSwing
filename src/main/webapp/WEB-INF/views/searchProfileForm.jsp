@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check Swing</title>
     <link rel="icon" href="img/logo.jpeg" type="image/x-icon">
-    <%-- <script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script> --%>
     <link rel="stylesheet" href="/css/style.css">
-    <script src="js/ie.js"></script>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
 </head>
@@ -134,9 +132,19 @@
 				</div>
 			</div>
 			<div class="pagination">
-				<c:forEach begin="1" end="${totalPages}" var="pageNumber">
+			<c:choose>
+				<c:when test="${empty param.team}">
+					<c:forEach begin="1" end="${totalPages}" var="pageNumber">
 					<a href="${currentMappingPath}?page=${pageNumber}">${pageNumber}</a>
-				</c:forEach>
+					</c:forEach>
+				</c:when>
+				 <c:otherwise>
+				 	<c:forEach begin="1" end="${totalPages}" var="pageNumber">
+					<a href="${currentMappingPath}?team=${team}?page=${pageNumber}">${pageNumber}</a>
+					</c:forEach>
+				 </c:otherwise>
+			
+			</c:choose>
 			</div>
 		</section>
 	</div>

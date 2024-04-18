@@ -78,13 +78,22 @@
 			</ul>
 		</div>
 	</header>
+	
 	<div class="slideshow-container">
-		<div class="mainSlideDiv fade">
-			<img alt="배너2" src="img/banner2.png">
-			<img alt="배너3" src="img/banner3.jpg">
+		<div class="mainSlideDiv">
+			<ul class="slidelist">
+				<li class="slideItem">
+					<div>
+						<label for="slide02" class="left"></label>
+						<label for="slide01" class="right"></label>
+						<a><img alt="slideImg3" src="img/banner3.jpg"></a>
+					</div>
+				</li>
+			</ul>
 		</div>
+		
+		
 	</div>
-	<script type="text/javascript" src="script/slide.js"></script>
 
 	<section class = "main_section">
 		<div class="inner">
