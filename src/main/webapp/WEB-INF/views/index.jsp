@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="com.checkSwing.model.User_UserInfo"%>
 <html lang="ko">
 <head>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -73,7 +74,15 @@
 			<ul class="util">
 				<li><a href="#">Contact</a></li>
 				<li><a href="#">Help</a></li>
-				<li><a href="#">Login</a></li>
+				
+				<!-- 로그인 상태가 아닌 경우 -->
+				<% if (session.getAttribute("user") == null) { %>
+					<li><a href="login">Login</a></li>
+				<!-- 로그인 상태인 경우 -->
+				<% } else { %>
+        			<li><a href="logout">Logout</a></li>
+				<% }%>
+					
 				<li><a href="#">Join</a></li>
 			</ul>
 		</div>

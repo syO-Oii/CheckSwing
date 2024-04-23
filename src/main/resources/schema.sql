@@ -74,3 +74,13 @@ CREATE TABLE HitterStatus
     ops          DECIMAL(4,3)
 );
 
+DROP TABLE IF EXISTS UserInfo;
+CREATE TABLE UserInfo(
+	num					INT		AUTO_INCREMENT	PRIMARY KEY,
+    id					VARCHAR(255),
+    password			VARCHAR(255),
+    name				VARCHAR(255),
+    team				VARCHAR(255),
+    birth				VARCHAR(255),
+    phoneNumber			VARCHAR(255)
+);
